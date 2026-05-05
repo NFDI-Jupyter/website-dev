@@ -15,6 +15,7 @@ export const ConsortiaCard = ({ consortium, index }: ConsortiaCardProps) => {
         <img
           src={consortium.logoUrl}
           alt={consortium.name}
+          draggable={false}
           className="w-full h-full object-cover object-top"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>

@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { ConsortiaCard } from "./Card";
 import type { Consortium } from "./types";
 
@@ -62,11 +63,16 @@ export default function Consortia() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           {consortia.map((consortium, index) => (
             <ConsortiaCard consortium={consortium} index={index} key={index} />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

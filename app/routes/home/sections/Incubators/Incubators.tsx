@@ -120,6 +120,7 @@ export default function Incubators() {
                   <img
                     src={current.image}
                     alt={current.name}
+                    draggable={false}
                     className="w-full h-full object-cover"
                   />
                   {/* Gradient Overlay */}

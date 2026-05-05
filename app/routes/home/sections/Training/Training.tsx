@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { TrainingCard } from "./Card";
 import type { Training } from "./types";
 
@@ -88,11 +89,16 @@ export default function Training() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
           {trainings.map((training, index) => (
             <TrainingCard key={index} training={training} index={index} />
           ))}
-        </div>
+        </motion.div>
 
         <div className="text-center mt-12">
           <button

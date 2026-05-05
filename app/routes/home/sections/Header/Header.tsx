@@ -1,7 +1,10 @@
 import { useState, useEffect, type RefObject } from "react";
 import { NavItem } from "./NavItem";
 
-const DEFAULT_NAV = [{ label: "Documentation", href: "/docs" }];
+const DEFAULT_NAV = [
+  { label: "Home", href: "/" },
+  { label: "Documentation", href: "/docs" },
+];
 
 interface HeaderProps {
   navLinks?: { label: string; href: string }[];
@@ -13,6 +16,7 @@ export default function Header({
   heroRef,
 }: HeaderProps) {
   const [solid, setSolid] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!heroRef) {
@@ -52,30 +56,35 @@ export default function Header({
     >
       {/* Logo */}
       {solid ? (
-        <img src="Jupyter4NFDI-top.png" alt="Jupyter4NFDI" width={256} />
+        <img
+          src="Jupyter4NFDI-top.png"
+          alt="Jupyter4NFDI"
+          draggable={false}
+          className="w-40 md:w-52 lg:w-64 object-contain"
+        />
       ) : (
         <img
           src="Jupyter4NFDI-transparent.png"
           alt="Jupyter4NFDI"
-          width={256}
-          className="object-contain"
+          draggable={false}
+          className="w-40 md:w-52 lg:w-64 object-contain"
         />
       )}
 
-      {/* Nav */}
-      <nav aria-label="Primary navigation">
-        <ul className="flex items-center gap-6 md:gap-8 lg:gap-10 list-none m-0 p-0">
+      {/* Desktop Nav */}
+      <nav aria-label="Primary navigation" className="hidden sm:block">
+        <ul className="flex items-center gap-4 md:gap-8 lg:gap-10 list-none m-0 p-0">
           {navLinks.map(({ label, href }) => (
             <NavItem label={label} key={label} href={href} solid={solid} />
           ))}
 
-          <li className="sm:block">
+          <li>
             <a
-              href={"/prod"}
+              href="/prod"
               className={[
                 "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
-                "px-4 py-2 rounded-sm border",
-                "transition-[color,background,border-color] duration-300",
+                "px-3 md:px-4 py-2 rounded-sm border",
+                "transition-[color,background,border-color] duration-300 whitespace-nowrap",
                 solid
                   ? "text-neutral-700 border-neutral-400 hover:bg-[#023d6b] hover:text-white hover:border-[#023d6b]"
                   : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
@@ -86,6 +95,68 @@ export default function Header({
           </li>
         </ul>
       </nav>
+
+      {/* Mobile: CTA + Hamburger */}
+      <div className="flex sm:hidden items-center gap-3">
+        <a
+          href="/prod"
+          className={[
+            "text-[0.65rem] font-normal tracking-widest uppercase no-underline",
+            "px-3 py-1.5 rounded-sm border",
+            "transition-[color,background,border-color] duration-300 whitespace-nowrap",
+            solid
+              ? "text-neutral-700 border-neutral-400 hover:bg-[#023d6b] hover:text-white hover:border-[#023d6b]"
+              : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
+          ].join(" ")}
+        >
+          try it now
+        </a>
+
+        {navLinks.length > 0 && (
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setMenuOpen((o) => !o)}
+            className={[
+              "flex flex-col justify-center items-center w-8 h-8 gap-1.5",
+              solid ? "text-neutral-700" : "text-white",
+            ].join(" ")}
+          >
+            <span
+              className={`block w-5 h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-current transition-opacity duration-200 ${menuOpen ? "opacity-0" : ""}`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-current transition-transform duration-200 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+            />
+          </button>
+        )}
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div
+          className={[
+            "absolute top-20 left-0 right-0 sm:hidden",
+            "flex flex-col px-4 py-3 gap-2",
+            solid
+              ? "bg-white/95 backdrop-blur-md border-b border-black/6 shadow-md"
+              : "bg-white/80 backdrop-blur-md border-b border-white/10",
+          ].join(" ")}
+        >
+          {navLinks.map(({ label, href }) => (
+            <a
+              key={label}
+              href={href}
+              className="text-sm text-neutral-700 py-2 border-b border-neutral-100 last:border-0 hover:text-[#023d6b] transition-colors"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          ))}
+        </div>
+      )}
     </header>
   );
 }

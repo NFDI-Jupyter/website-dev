@@ -6,28 +6,15 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-semibold mb-6">Jupyter4NFDI</h3>
+            <h3 className="text-xl font-semibold mb-2">Jupyter4NFDI</h3>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Connecting researchers to distributed HPC and Cloud computing
-              resources through a unified JupyterHub platform, supporting FAIR
-              research principles.
+              Making distributed HPC and Cloud computing resources accessible
+              through a unified JupyterHub platform for academic research
+              institutions
             </p>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-6">Jupyter4NFDI</h4>
-            <ul className="space-y-3">
-              <FooterLink
-                href="https://jupyter4nfdi.de/about/"
-                label="About Us"
-              />
-              <FooterLink
-                href="https://jupyter4nfdi.de/docs/"
-                label="Documentation"
-              />
-            </ul>
-            <h4 className="text-lg font-semibold my-6">Contact us</h4>
+            <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
             <ul className="space-y-3">
               <FooterLink
                 href="mailto:jupyter4nfdi@lists.nfdi.de"
@@ -47,7 +34,18 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="text-lg font-semibold mb-6">Base4NFDI</h4>
+            <h4 className="text-lg font-semibold mb-2">Jupyter4NFDI</h4>
+            <ul className="space-y-3">
+              <FooterLink
+                href="https://jupyter4nfdi.de/about/"
+                label="About Us"
+              />
+              <FooterLink
+                href="https://jupyter4nfdi.de/docs/"
+                label="Documentation"
+              />
+            </ul>
+            <h4 className="text-lg font-semibold my-2">Base4NFDI</h4>
             <ul className="space-y-3">
               <FooterLink
                 href="https://www.base4nfdi.de/"
@@ -64,9 +62,18 @@ export default function Footer() {
             </ul>
           </div>
           <div>
+            <h3 className="text-lg font-semibold mb-2">legal</h3>
+            <ul>
+              <FooterLink href="#" label="Imprint" />
+              <FooterLink href="#" label="Privacy Policy" />
+              <FooterLink href="#" label="Terms of Service" />
+              <FooterLink href="#" label="Accessibility Statement" />
+            </ul>
+            <h3 className="text-lg font-semibold my-2">Funding</h3>
             <img
               src="dfg_logo_schriftzug_weiss_foerderung_en.gif"
               alt="DFG Logo"
+              draggable={false}
               width={256}
             />
             <p className="text-gray-400 text-sm">
@@ -82,26 +89,6 @@ export default function Footer() {
               ©2026 Jupyter4NFDI. Supporting FAIR research across German
               academic institutions.
             </p>
-            <div className="flex space-x-6 text-sm">
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                Terms of Service
-              </a>
-              <a
-                href="#"
-                className="text-gray-400 hover:text-white transition-colors cursor-pointer"
-              >
-                Accessibility
-              </a>
-            </div>
           </div>
         </div>
       </div>

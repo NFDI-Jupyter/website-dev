@@ -105,6 +105,7 @@ export default function Mission({
               <img
                 src={imageSrc}
                 alt={imageAlt}
+                draggable={false}
                 className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
               />
             </div>
