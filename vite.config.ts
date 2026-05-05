@@ -4,9 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   appType: "spa",
-  build: {
-    assetsDir: "website-dev/assets",
-  },
+  base: "/website-dev/",
   plugins: [tailwindcss(), reactRouter()],
   resolve: {
     tsconfigPaths: true,

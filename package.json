@@ -1,5 +1,6 @@
 {
   "name": "my-react-router-app",
+  "homepage": "https://nfdi-jupyter.github.io/website-dev/",
   "private": true,
   "type": "module",
   "scripts": {
