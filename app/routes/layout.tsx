@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { Outlet } from "react-router";
-import Header from "./home/sections/Header/Header";
-import Footer from "./home/sections/Footer/Footer";
+import Header from "@/components/common/Header/Header";
+import Footer from "@/components/common/Footer/Footer";
 
 export default function Layout() {
   const heroRef = useRef<HTMLDivElement>(null);

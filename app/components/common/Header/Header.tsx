@@ -1,20 +1,16 @@
 import { useState, useEffect, type RefObject } from "react";
 import { NavItem } from "./NavItem";
 
-const DEFAULT_NAV = [
-  { label: "Home", href: "/" },
-  { label: "Documentation", href: "/docs" },
-];
-
 interface HeaderProps {
-  navLinks?: { label: string; href: string }[];
   heroRef?: RefObject<HTMLDivElement>;
 }
 
-export default function Header({
-  navLinks = DEFAULT_NAV,
-  heroRef,
-}: HeaderProps) {
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Documentation", href: "docs" },
+];
+
+export default function Header({ heroRef }: HeaderProps) {
   const [solid, setSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -39,6 +35,7 @@ export default function Header({
 
   return (
     <header
+      id="Header"
       role="banner"
       className={[
         // Layout
@@ -57,15 +54,15 @@ export default function Header({
       {/* Logo */}
       {solid ? (
         <img
-          src="Jupyter4NFDI-top.png"
-          alt="Jupyter4NFDI"
+          src={"Jupyter4NFDI-top.png"}
+          alt={"Jupyter4NFDI Logo"}
           draggable={false}
           className="w-40 md:w-52 lg:w-64 object-contain"
         />
       ) : (
         <img
-          src="Jupyter4NFDI-transparent.png"
-          alt="Jupyter4NFDI"
+          src={"Jupyter4NFDI-transparent.png"}
+          alt={"Jupyter4NFDI Logo"}
           draggable={false}
           className="w-40 md:w-52 lg:w-64 object-contain"
         />
@@ -74,23 +71,27 @@ export default function Header({
       {/* Desktop Nav */}
       <nav aria-label="Primary navigation" className="hidden sm:block">
         <ul className="flex items-center gap-4 md:gap-8 lg:gap-10 list-none m-0 p-0">
-          {navLinks.map(({ label, href }) => (
-            <NavItem label={label} key={label} href={href} solid={solid} />
+          {navLinks.map((link) => (
+            <NavItem
+              key={link.label}
+              label={link.label}
+              href={link.href}
+              solid={solid}
+            />
           ))}
-
           <li>
             <a
-              href="/prod"
+              href="prod"
               className={[
                 "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
                 "px-3 md:px-4 py-2 rounded-sm border",
                 "transition-[color,background,border-color] duration-300 whitespace-nowrap",
                 solid
-                  ? "text-neutral-700 border-neutral-400 hover:bg-[#023d6b] hover:text-white hover:border-[#023d6b]"
+                  ? "text-neutral-700 border-neutral-400 hover:bg-primary hover:text-white hover:border-primary"
                   : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
               ].join(" ")}
             >
-              try it now
+              Try it now
             </a>
           </li>
         </ul>
@@ -99,17 +100,17 @@ export default function Header({
       {/* Mobile: CTA + Hamburger */}
       <div className="flex sm:hidden items-center gap-3">
         <a
-          href="/prod"
+          href="prod"
           className={[
             "text-[0.65rem] font-normal tracking-widest uppercase no-underline",
             "px-3 py-1.5 rounded-sm border",
             "transition-[color,background,border-color] duration-300 whitespace-nowrap",
             solid
-              ? "text-neutral-700 border-neutral-400 hover:bg-[#023d6b] hover:text-white hover:border-[#023d6b]"
+              ? "text-neutral-700 border-neutral-400 hover:bg-primary hover:text-white hover:border-primary"
               : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
           ].join(" ")}
         >
-          try it now
+          Try it now
         </a>
 
         {navLinks.length > 0 && (
@@ -145,11 +146,11 @@ export default function Header({
               : "bg-white/80 backdrop-blur-md border-b border-white/10",
           ].join(" ")}
         >
-          {navLinks.map(({ label, href }) => (
+          {navLinks.map(({ label, href }: { label: string; href: string }) => (
             <a
               key={label}
               href={href}
-              className="text-sm text-neutral-700 py-2 border-b border-neutral-100 last:border-0 hover:text-[#023d6b] transition-colors"
+              className="text-sm text-neutral-700 py-2 border-b border-neutral-100 last:border-0 hover:text-primary transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {label}

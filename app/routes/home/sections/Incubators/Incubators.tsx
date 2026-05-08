@@ -1,35 +1,12 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
+import { data } from "@/data/Incubators";
 
 export default function Incubators() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
-
-  const useCases = [
-    {
-      id: 1,
-      name: "Team1",
-      description:
-        "Collaborate on complex data analysis and machine learning projects with instant access to computational resources.",
-      image: "Jupyter4NFDI-top.png",
-    },
-    {
-      id: 2,
-      name: "Team2",
-      description:
-        "Run hands-on training sessions with pre-configured environments and powerful computing for real-time learning.",
-      image: "Jupyter4NFDI-top.png",
-    },
-    {
-      id: 3,
-      name: "Team3",
-      description:
-        "Develop and test machine learning models without managing infrastructure. Focus on what matters most.",
-      image: "Jupyter4NFDI-top.png",
-    },
-  ];
 
   const slideVariants = {
     enter: (direction: number) => ({
@@ -51,7 +28,8 @@ export default function Incubators() {
   const paginate = (newDirection: number) => {
     setDirection(newDirection);
     setCurrentIndex(
-      (prev) => (prev + newDirection + useCases.length) % useCases.length,
+      (prev) =>
+        (prev + newDirection + data.incubators.length) % data.incubators.length,
     );
     setIsAutoPlay(false);
   };
@@ -64,16 +42,19 @@ export default function Incubators() {
 
     const interval = setInterval(() => {
       setDirection(1);
-      setCurrentIndex((prev) => (prev + 1) % useCases.length);
+      setCurrentIndex((prev) => (prev + 1) % data.incubators.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlay, useCases.length]);
+  }, [isAutoPlay]);
 
-  const current = useCases[currentIndex];
+  const current = data.incubators[currentIndex];
 
   return (
-    <section className="bg-white min-h-screen flex items-center overflow-x-hidden">
+    <section
+      id="incubators"
+      className="bg-white min-h-screen flex items-center overflow-x-hidden"
+    >
       <div className="max-w-6xl mx-auto px-6 lg:px-8 w-full">
         {/* Header */}
         <motion.div
@@ -83,13 +64,11 @@ export default function Incubators() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-[#023d6b] mb-6">
-            How teams use our platform
+          <h2 className="text-5xl md:text-6xl font-bold text-primary mb-6">
+            {data.title}
           </h2>
-          <p className="text-xl text-[#023d6b] max-w-2xl mx-auto opacity-70">
-            Discover how our incubators and research groups leverage
-            Jupyter4NFDI to accelerate their scientific discoveries and
-            collaborations.
+          <p className="text-xl text-primary max-w-2xl mx-auto opacity-70">
+            {data.subtitle}
           </p>
         </motion.div>
 
@@ -118,13 +97,13 @@ export default function Incubators() {
                   transition={{ duration: 0.6, delay: 0.1 }}
                 >
                   <img
-                    src={current.image}
-                    alt={current.name}
+                    src={current.image.src}
+                    alt={current.image.alt}
                     draggable={false}
                     className="w-full h-full object-cover"
                   />
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-[#023d6b] opacity-20 mix-blend-multiply" />
+                  <div className="absolute inset-0 bg-primary opacity-20 mix-blend-multiply" />
 
                   {/* Badge */}
                   <motion.div
@@ -134,7 +113,7 @@ export default function Incubators() {
                     transition={{ duration: 0.5, delay: 0.3 }}
                   >
                     <span className="text-white text-sm font-semibold">
-                      {currentIndex + 1} of {useCases.length}
+                      {currentIndex + 1} of {data.incubators.length}
                     </span>
                   </motion.div>
                 </motion.div>
@@ -148,26 +127,26 @@ export default function Incubators() {
                 >
                   {/* Colored Accent */}
                   <motion.div
-                    className="w-12 h-1 rounded-full bg-[#adbde3]"
+                    className="w-12 h-1 rounded-full bg-secondary"
                     initial={{ width: 0 }}
                     animate={{ width: 48 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   />
 
                   {/* Title */}
-                  <h3 className="text-4xl md:text-5xl font-bold text-[#023d6b] leading-tight">
+                  <h3 className="text-4xl md:text-5xl font-bold text-primary leading-tight">
                     {current.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-lg text-[#023d6b] leading-relaxed max-w-md opacity-80">
+                  <p className="text-lg text-primary leading-relaxed max-w-md opacity-80">
                     {current.description}
                   </p>
 
                   {/* CTA Button */}
                   <motion.button
                     name="learn-more"
-                    className="mt-8 self-start px-8 py-3 bg-[#023d6b] text-white font-semibold rounded-lg hover:bg-[#023d6b]/90 transition-colors duration-300 shadow-lg"
+                    className="mt-8 self-start px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition-colors duration-300 shadow-lg"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -183,7 +162,7 @@ export default function Incubators() {
         <div className="flex items-center justify-between gap-6">
           {/* Dots Indicator */}
           <div className="flex gap-2 flex-1">
-            {useCases.map((_, index) => (
+            {data.incubators.map((_, index) => (
               <motion.button
                 key={index}
                 aria-label={`Go to slide ${index + 1}`}
@@ -199,8 +178,8 @@ export default function Incubators() {
                 <span
                   className={`block h-2 rounded-full transition-all duration-300 pointer-events-none ${
                     index === currentIndex
-                      ? `bg-[#023d6b] w-12`
-                      : `bg-[#adbde3] w-2 hover:bg-[#023d6b]/50`
+                      ? `bg-primary w-12`
+                      : `bg-secondary w-2 hover:bg-primary/50`
                   }`}
                 />
               </motion.button>
@@ -212,7 +191,7 @@ export default function Incubators() {
             <motion.button
               name="previous-slide"
               onClick={() => paginate(-1)}
-              className="p-3 rounded-full bg-[#adbde3] hover:bg-[#023d6b] text-[#023d6b] hover:text-white transition-colors duration-300 shadow-lg"
+              className="p-3 rounded-full bg-secondary hover:bg-primary text-primary hover:text-white transition-colors duration-300 shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Previous slide"
@@ -222,7 +201,7 @@ export default function Incubators() {
             <motion.button
               name="next-slide"
               onClick={() => paginate(1)}
-              className="p-3 rounded-full bg-[#adbde3] hover:bg-[#023d6b] text-[#023d6b] hover:text-white transition-colors duration-300 shadow-lg"
+              className="p-3 rounded-full bg-secondary hover:bg-primary text-primary hover:text-white transition-colors duration-300 shadow-lg"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Next slide"

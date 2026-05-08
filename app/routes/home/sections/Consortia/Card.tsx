@@ -1,4 +1,5 @@
-import type { Consortium } from "./types";
+import { AnimatedButton } from "@/components/ui/AnimatedButton";
+import type { Consortium } from "@/types/Consortium";
 
 interface ConsortiaCardProps {
   consortium: Consortium;
@@ -32,12 +33,11 @@ export const ConsortiaCard = ({ consortium, index }: ConsortiaCardProps) => {
           {consortium.description}
         </p>
 
-        <button
-          name="explore-resources"
-          className="w-full px-4 py-2 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors whitespace-nowrap cursor-pointer"
-        >
-          Explore Resources
-        </button>
+        <AnimatedButton
+          label="explore resources"
+          className="text-blue-600 border-blue-600"
+          onClick={() => console.log("Clicked")}
+        />
       </div>
     </div>
   );

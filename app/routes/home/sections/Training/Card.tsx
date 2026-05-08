@@ -1,7 +1,8 @@
-import type { Training } from "./types";
+import { AnimatedButton } from "@/components/ui/AnimatedButton";
+import type { TrainingEvent } from "@/types/Training";
 
 interface TrainingCardProps {
-  training: Training;
+  training: TrainingEvent;
   index: number;
 }
 
@@ -73,18 +74,16 @@ export function TrainingCard({ training, index }: TrainingCardProps) {
       </div>
 
       <div className="flex gap-2">
-        <button
-          name="register"
+        <AnimatedButton
+          label="Register"
+          onClick={() => console.log("Register clicked")}
           className="flex-1 px-4 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap cursor-pointer"
-        >
-          Register
-        </button>
-        <button
-          name="more-info"
+        />
+        <AnimatedButton
+          label="Info"
+          onClick={() => console.log("Info clicked")}
           className="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors whitespace-nowrap cursor-pointer"
-        >
-          Info
-        </button>
+        />
       </div>
     </div>
   );

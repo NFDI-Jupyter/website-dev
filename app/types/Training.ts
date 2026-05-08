@@ -1,10 +1,10 @@
-export interface Training {
+export interface TrainingEvent {
   title: string;
-  description: string;
   type: string;
+  duration: string;
   level: string;
   date: string;
-  duration: string;
+  description: string;
   imageUrl: string;
   link: string;
 }

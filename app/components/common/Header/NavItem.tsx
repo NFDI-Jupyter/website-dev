@@ -13,7 +13,7 @@ export const NavItem = ({ label, href, solid }: NavItemProps) => {
           "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
           "transition-colors duration-300",
           solid
-            ? "text-neutral-800 hover:text-[#023d6b]"
+            ? "text-neutral-800 hover:text-primary"
             : "text-white hover:text-neutral-900",
         ].join(" ")}
       >
