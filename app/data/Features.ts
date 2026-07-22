@@ -60,5 +60,26 @@ export const data: FeaturesData = {
       description:
         "Facilitating workshops and training sessions with pre-configured environments and easy access to HPC resources for hands-on learning. Everything is ready to go.",
     },
+    {
+      icon: LuPresentation,
+      title: "Data integration",
+      oneLiner: "Integrate remote data from various sources",
+      description:
+	"",
+    },
+    {
+      icon: LuPresentation,
+      title: "",
+      oneLiner: "",
+      description:
+        "",
+    },
+    {
+      icon: LuPresentation,
+      title: "",
+      oneLiner: "",
+      description:
+        "",
+    },
   ],
 };
