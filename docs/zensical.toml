@@ -1,0 +1,146 @@
+[project]
+site_name = "Jupyter4NFDI"
+site_description = "Jupyter4NFDI project overview"
+site_author = "WG RSE, NFDI Section Common Infrastructures, Jupyter4NFDI"
+site_url = "https://NFDI-Jupyter.github.io/services"
+repo_url = "https://github.com/NFDI-Jupyter/services"
+copyright = "&copy; 2026 Forschungszentrum JÃ¼lich"
+
+extra_css = [
+    "css/style.css",
+    "css/extra.css",
+]
+
+extra_javascript = [
+    "https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js",
+    "js/tablesort.js",
+]
+
+nav = [
+    { "General" = [
+        { "Overview" = "index.md" },
+        { "Authentication" = "authentication.md" },
+        { "2-Factor authentication" = "2fa.md" },
+        { "Available Resources and Tools" = "features.md" },
+    ]},
+    { "For Users" = [
+        { "JupyterLab" = "users/jupyterlab/default/index.md" },
+        { "JupyterLab XL" = "users/jupyterlab/4.3/index.md" },
+        { "Custom Docker Images" = "users/jupyterlab/customdockerimage/index.md" },
+        { "Repo2Docker ( Binder )" = "users/jupyterlab/repo2docker/index.md" },
+        { "Automated Notebook Validation" = "users/jupyterlab/ghactions.md" },
+        { "Credits" = "users/credits.md" },
+        { "Mount external storage locations" = "users/storage.md" },
+        { "Real-Time-Collaboration (RTC)" = "users/rtc.md" },
+        { "Share Links (FAIR)" = "users/share.md" },
+        { "REST API Access" = "users/rest-api.md" },
+        { "GPU Access" = "users/gpu-access.md" },
+    ]},
+    { "For Workshops" = [
+        { "Manage Workshops" = "workshops.md" },
+    ]},
+    { "For Resource Providers" = [
+        { "Overview" = "providers/index.md" },
+        { "Architecture" = "providers/architecture.md" },
+        { "Installation" = "providers/installation.md" },
+        { "Configuration" = "providers/configuration.md" },
+    ]},
+    { "Support" = "support.md" },
+    { "Event" = "love_data_week_2026.md" },
+]
+
+[project.theme]
+custom_dir = "docs/custom"
+language = "en"
+logo = "./images/Jupyter4NFDI-top.png"
+favicon = "images/nfdi_rgb_Wortmarke_White.png"
+features = [
+    "navigation.sections",
+    "navigation.collapse",
+    "navigation.footer",
+    "toc.integrate",
+    "navigation.top",
+    "search.suggest",
+    "search.highlight",
+    "content.tabs.link",
+    "content.code.annotation",
+    "content.code.copy",
+]
+
+[project.theme.font]
+text = "Fira Sans"
+code = "Roboto Mono"
+
+[project.theme.palette]
+scheme = "default"
+
+[project.markdown_extensions.zensical.extensions.macros]
+
+[project.markdown_extensions.pymdownx.highlight]
+anchor_linenums = true
+
+[project.markdown_extensions.pymdownx.inlinehilite]
+
+[project.markdown_extensions.pymdownx.snippets]
+
+[project.markdown_extensions.admonition]
+
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+
+[project.markdown_extensions.md_in_html]
+
+# Meta is not yet implemented by zensical
+# [project.markdown_extensions.meta]
+
+[project.markdown_extensions.tables]
+
+[project.markdown_extensions.def_list]
+
+[project.markdown_extensions.footnotes]
+
+[project.markdown_extensions.pymdownx.details]
+
+[project.markdown_extensions.pymdownx.superfences]
+
+[project.markdown_extensions.pymdownx.mark]
+
+[project.markdown_extensions.attr_list]
+
+[project.markdown_extensions.pymdownx.emoji]
+emoji_index = "zensical.extensions.emoji.twemoji"
+emoji_generator = "zensical.extensions.emoji.to_svg"
+
+[project.extra]
+generator = false
+logo = "images/logo.png"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/NFDI-Jupyter/services"
+
+[project.extra.footer]
+copyright = "&copy; 2026 Forschungszentrum JÃ¼lich"
+lines = [
+    "Partially funded by DFG as part of NFDI.",
+    "Grant Number 521453681",
+]
+
+[[project.extra.footer.links]]
+name = "Contact"
+link = "https://nfdi-jupyter.de/support/"
+
+[[project.extra.footer.links]]
+name = "Legal Notice"
+link = "https://nfdi-jupyter.de/imprint/"
+
+[[project.extra.footer.links]]
+name = "Privacy Policy"
+link = "https://hub.nfdi-jupyter.de/hub/privacy"
+
+[project.extra.footer.logo]
+link = "https://www.dfg.de/"
+img = "images/dfg_logo_schriftzug_weiss_foerderung_en.gif"

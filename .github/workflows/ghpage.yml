@@ -29,8 +29,18 @@ jobs:
           node-version: 24
           cache: "pnpm"
 
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
       - name: Install dependencies
         run: pnpm install
+
+      - name: Install docs tooling
+        run: pip install -r docs/requirements.txt
+
+      - name: Generate docs
+        run: pnpm docs:sync
 
       - name: Build
         run: pnpm build
