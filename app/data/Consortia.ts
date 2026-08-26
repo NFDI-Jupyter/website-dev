@@ -1,4 +1,9 @@
-import { type Consortium } from "@/types/Consortium";
+export interface Consortium {
+  name: string;
+  description: string;
+  logoUrl: string;
+  domain: string;
+}
 
 interface ConsortiaData {
   title: string;

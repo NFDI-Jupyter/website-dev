@@ -1,4 +1,4 @@
-import type { Feature } from "@/types/Feature";
+import type { IconType } from "react-icons";
 import {
   LuLayoutDashboard,
   LuRocket,
@@ -7,6 +7,13 @@ import {
   LuContainer,
   LuPresentation,
 } from "react-icons/lu";
+
+export interface Feature {
+  icon: IconType;
+  title: string;
+  oneLiner: string;
+  description: string;
+}
 
 interface FeaturesData {
   title: string;

@@ -1,45 +1,107 @@
-import type { Incubator } from "@/types/Incubator";
-
-interface IncubatorsData {
-  title: string;
-  subtitle: string;
+export interface Cycle {
+  range: string;
+  status: "past" | "active" | "upcoming";
   incubators: Incubator[];
 }
 
-export const data: IncubatorsData = {
+export interface Incubator {
+  name: string;
+  institution: string;
+  description: string;
+  image: string;
+  href: string;
+}
+
+interface IncubatorData {
+  title: string;
+  activeCycle: number;
+  cycles: Cycle[];
+}
+
+export const data: IncubatorData = {
   title: "How teams use our platform",
-  subtitle:
-    "Discover how our incubators and research groups leverage Jupyter4NFDI to accelerate their scientific discoveries and collaborations.",
-  incubators: [
+  activeCycle: 1,
+  cycles: [
     {
-      name: "Incubator A",
-      description:
-        "Incubator A uses Jupyter4NFDI to provide their researchers with seamless access to HPC resources, enabling them to run complex simulations and analyses without worrying about infrastructure.",
-      image: {
-        src: "Jupyter4NFDI-top.png",
-        alt: "Incubator A using Jupyter4NFDI",
-      },
-      url: "docs",
+      range: "Feb – Jul 2026",
+      status: "past",
+      incubators: [
+        {
+          name: "3D Analysis",
+          institution: "Physikalisches Institut",
+          description: "Komplexe physikalische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Biologische Analysen",
+          institution: "Biologische Analysen",
+          description: "Komplexe biologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Astrologische Analysen",
+          institution: "Astrophysikalisches Institut",
+          description: "Astrologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Astrologische Analysen",
+          institution: "Astrophysikalisches Institut",
+          description: "Astrologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Astrologische Analysen",
+          institution: "Astrophysikalisches Institut",
+          description: "Astrologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+      ],
     },
     {
-      name: "Incubator B",
-      description:
-        "Incubator B has integrated Jupyter4NFDI into their training programs, allowing students and early-career researchers to gain hands-on experience with high-performance computing in a user-friendly environment.",
-      image: {
-        src: "Jupyter4NFDI-top.png",
-        alt: "Incubator B using Jupyter4NFDI",
-      },
-      url: "docs",
+      range: "Aug 2026 – Jan 2027",
+      status: "active",
+      incubators: [
+        {
+          name: "Geologische Analysen",
+          institution: "Geologisches Institut",
+          description: "Sehr viele geologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Incubator Name",
+          institution: "Institut(e)",
+          description: "Beschreibung des Incubators.",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+        {
+          name: "Soziologische Analysen",
+          institution: "Soziologisches Institut",
+          description: "Einige soziologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+      ],
     },
     {
-      name: "Incubator C",
-      description:
-        "Incubator C leverages Jupyter4NFDI's support for custom Docker images to create tailored computing environments for their research projects, ensuring reproducibility and consistency across different teams.",
-      image: {
-        src: "Jupyter4NFDI-top.png",
-        alt: "Incubator C using Jupyter4NFDI",
-      },
-      url: "docs",
+      range: "To be announced",
+      status: "upcoming",
+      incubators: [
+        {
+          name: "Astrologische Analysen",
+          institution: "Astrophysikalisches Institut",
+          description: "Astrologische Analysen",
+          image: "Jupyter4NFDI-top.png",
+          href: "#",
+        },
+      ],
     },
   ],
 };

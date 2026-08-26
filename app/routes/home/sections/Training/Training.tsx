@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { TrainingCard } from "./Card";
-import { type TrainingEvent } from "@/types/Training";
+import { type TrainingEvent } from "@/data/Training";
 import { data } from "@/data/Training";
 
 export default function Training() {

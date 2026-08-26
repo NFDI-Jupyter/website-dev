@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { ConsortiaCard } from "./Card";
-import { type Consortium } from "@/types/Consortium";
+import { type Consortium } from "@/data/Consortia";
 import { data } from "@/data/Consortia";
 
 export default function Consortia() {
