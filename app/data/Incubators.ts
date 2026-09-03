@@ -48,11 +48,11 @@ export const data: IncubatorData = {
           href: "#",
         },
         {
-          name: "Astrologische Analysen",
-          institution: "Astrophysikalisches Institut",
-          description: "Astrologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
+          name: "Interaktiver Selbstlernkurs: Sentimentanalyse mit Python für Digital Humanities",
+          institution: "Universitätsbibliothek Duisburg-Essen",
+          description: "Entwicklung eines browserbasierten, interaktiven Selbstlernkurses zur Sentimentanalyse deutschsprachiger literarischer Texte. Der Kurs vermittelt Python-Grundlagen, Textverarbeitung und Sentiment-Analyse anhand der Grimm'schen Märchen. Durch die Integration von Thebe mit dem NFDI JupyterHub können Lernende Code-Beispiele direkt im Browser ausführen – ohne lokale Python-Installation. Dieser Kurs ist im Rahmen des von der Stiftung Innovation in der Hochschullehre von 2024–2026 geförderten Projekts 'Digital Humanities Ruhr@UDE' entstanden.",
+          image: "digital-humanities-rhur-logo.png",
+          href: "https://duepublico2.uni-due.de/receive/duepublico_mods_00086519",
         },
         {
           name: "Astrologische Analysen",
