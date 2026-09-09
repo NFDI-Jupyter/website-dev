@@ -183,9 +183,9 @@ const IncubatorCyclesSection: React.FC = () => {
                     alt={incubator.name}
                     loading="lazy"
                     className={[
-                      "w-full h-full object-fit block",
+                      "w-full h-full object-fill p-4",
                       "transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
-                      isHovered ? "scale-[1.06]" : "",
+                      isHovered ? "scale-[1.04]" : "",
                     ].join(" ")}
                   />
                 </div>
