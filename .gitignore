@@ -3,6 +3,7 @@
 .venv
 .cache
 /node_modules/
+*~
 
 # React Router
 /.react-router/
