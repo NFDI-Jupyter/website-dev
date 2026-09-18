@@ -20,6 +20,8 @@ interface IncubatorData {
 
 export const data: IncubatorData = {
   title: "How teams use our platform",
+  subtitle:
+    "Discover how our incubator projects support researchers to leverage Jupyter4NFDI and accelerate their scientific discoveries and collaborations.",
   activeCycle: 0,
   cycles: [
     {
@@ -56,6 +58,13 @@ export const data: IncubatorData = {
           image: "digital-humanities-rhur-logo.png.png",
           href: "https://duepublico2.uni-due.de/receive/duepublico_mods_00086519",
         },
+    {
+      name: "Interactive tutorials for the parallel Heat library",
+      description:
+	"The Heat team implemented interactive tutorials for their high-performance data analytics library.",
+      image: "Heat-logo-square.png",
+      url: "https://github.com/NFDI-Jupyter/services/discussions/42",
+    },
 //        {
 //          name: "Astrologische Analysen",
 //          institution: "Astrophysikalisches Institut",
