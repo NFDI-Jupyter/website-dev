@@ -20,7 +20,7 @@ interface IncubatorData {
 
 export const data: IncubatorData = {
   title: "How teams use our platform",
-  activeCycle: 1,
+  activeCycle: 0,
   cycles: [
     {
       range: "Feb – Jul 2026",
@@ -30,7 +30,7 @@ export const data: IncubatorData = {
           name: "Enhancing TLS Data Processing Through Collaboration with Jupyter4NFDIs",
           institution: "ScanClouDT Consortium",
           description:
-            "Within the ScanClouDT project a lot of virtual and real scans of terrestrial laser scanning instruments are created either from real TLS measurements or from the digital metrological twin. For the comparison, analysis and investigation of the accuracy of the D-MT and the validity of the design, the scans need to be transformed, filtered, segmented, fitted into the according geometry and their applied uncertainty estimation must be done. Since one real scan already consists of around 13 GB, the transformation is highly computational expensive. Furthermore the different project partner of the ScanClouDT Consortium shall use the algorithms and data in their respective use-case as well.",
+            "Within the ScanClouDT project a lot of virtual and real scans of terrestrial laser scanning instruments are created either from real TLS measurements or from the digital metrological twin. For the comparison, analysis and investigation of the accuracy of the D-MT and the validity of the design, the scans need to be transformed, filtered, segmented, fitted into the according geometry and their applied uncertainty estimation must be done. Since one real scan already consists of around 13 GB, the transformation is highly computationally expensive. Furthermore, the different project partners of the ScanClouDT Consortium shall use the algorithms and data in their respective use-case as well.",
           image: "ScanClouDT_Logo.svg",
           href: "https://www.scancloudt.ptb.de/news-events",
         },
@@ -43,13 +43,6 @@ export const data: IncubatorData = {
           href: "https://github.com/ssciwr/AMMICO",
         },
         {
-          name: "Astrologische Analysen",
-          institution: "Astrophysikalisches Institut",
-          description: "Astrologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
-        },
-        {
           name: "Interaktiver Selbstlernkurs: Sentimentanalyse mit Python für Digital Humanities",
           institution: "Universitätsbibliothek Duisburg-Essen",
           description:
@@ -58,53 +51,54 @@ export const data: IncubatorData = {
           href: "https://duepublico2.uni-due.de/receive/duepublico_mods_00086519",
         },
         {
-          name: "Astrologische Analysen",
-          institution: "Astrophysikalisches Institut",
-          description: "Astrologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
+          name: "Interactive tutorials for the parallel Heat library",
+          institution: "Jülich Supercomputing Centre",
+          description:
+            "The Heat team implemented interactive tutorials for their high-performance data analytics library.",
+          image: "Heat-logo-square.png",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/42",
         },
       ],
     },
-    {
-      range: "Aug 2026 – Jan 2027",
-      status: "active",
-      incubators: [
-        {
-          name: "Geologische Analysen",
-          institution: "Geologisches Institut",
-          description: "Sehr viele geologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
-        },
-        {
-          name: "Incubator Name",
-          institution: "Institut(e)",
-          description: "Beschreibung des Incubators.",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
-        },
-        {
-          name: "Soziologische Analysen",
-          institution: "Soziologisches Institut",
-          description: "Einige soziologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
-        },
-      ],
-    },
-    {
-      range: "To be announced",
-      status: "upcoming",
-      incubators: [
-        {
-          name: "Astrologische Analysen",
-          institution: "Astrophysikalisches Institut",
-          description: "Astrologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
-        },
-      ],
-    },
+    //    {
+    //      range: "Aug 2026 – Jan 2027",
+    //      status: "active",
+    //      incubators: [
+    //        {
+    //          name: "Geologische Analysen",
+    //          institution: "Geologisches Institut",
+    //          description: "Sehr viele geologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //        {
+    //          name: "Incubator Name",
+    //          institution: "Institut(e)",
+    //          description: "Beschreibung des Incubators.",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //        {
+    //          name: "Soziologische Analysen",
+    //          institution: "Soziologisches Institut",
+    //          description: "Einige soziologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //      ],
+    //    },
+    //    {
+    //      range: "To be announced",
+    //      status: "upcoming",
+    //      incubators: [
+    //        {
+    //          name: "Astrologische Analysen",
+    //          institution: "Astrophysikalisches Institut",
+    //          description: "Astrologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //      ],
+    //    },
   ],
 };
