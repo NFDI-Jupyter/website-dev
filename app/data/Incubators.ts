@@ -34,11 +34,12 @@ export const data: IncubatorData = {
           href: "#",
         },
         {
-          name: "Biologische Analysen",
-          institution: "Biologische Analysen",
-          description: "Komplexe biologische Analysen",
-          image: "Jupyter4NFDI-top.png",
-          href: "#",
+          name: "AMMICO (AI-based Media and Misinformation Content Analysis Tool) as an AI-powered visual analysis online resource for political science and communication research and teaching",
+          institution: "Heidelberg University",
+          description:
+            "AMMICO is a AI-based tool developed through the collaboration between the Scientific Software Center and researchers at the Institute of Political Science at Heidelberg University. With AMMICO, large amounts of image and video data can be analyzed with respect to emotional and factual content. The aim of this incubator is to make AMMICO more easily available and grow its user base by setting up a low-barrier user-friendly resource where researchers can try out AMMICO and use it for their own research and teaching.",
+          image: "ssc-ammico.png",
+          href: "https://github.com/ssciwr/AMMICO",
         },
         {
           name: "Astrologische Analysen",
@@ -50,7 +51,8 @@ export const data: IncubatorData = {
         {
           name: "Interaktiver Selbstlernkurs: Sentimentanalyse mit Python für Digital Humanities",
           institution: "Universitätsbibliothek Duisburg-Essen",
-          description: "Entwicklung eines browserbasierten, interaktiven Selbstlernkurses zur Sentimentanalyse deutschsprachiger literarischer Texte. Der Kurs vermittelt Python-Grundlagen, Textverarbeitung und Sentiment-Analyse anhand der Grimm'schen Märchen. Durch die Integration von Thebe mit dem NFDI JupyterHub können Lernende Code-Beispiele direkt im Browser ausführen – ohne lokale Python-Installation. Dieser Kurs ist im Rahmen des von der Stiftung Innovation in der Hochschullehre von 2024–2026 geförderten Projekts 'Digital Humanities Ruhr@UDE' entstanden.",
+          description:
+            "Entwicklung eines browserbasierten, interaktiven Selbstlernkurses zur Sentimentanalyse deutschsprachiger literarischer Texte. Der Kurs vermittelt Python-Grundlagen, Textverarbeitung und Sentiment-Analyse anhand der Grimm'schen Märchen. Durch die Integration von Thebe mit dem NFDI JupyterHub können Lernende Code-Beispiele direkt im Browser ausführen – ohne lokale Python-Installation. Dieser Kurs ist im Rahmen des von der Stiftung Innovation in der Hochschullehre von 2024–2026 geförderten Projekts 'Digital Humanities Ruhr@UDE' entstanden.",
           image: "digital-humanities-rhur-logo.png.png",
           href: "https://duepublico2.uni-due.de/receive/duepublico_mods_00086519",
         },
