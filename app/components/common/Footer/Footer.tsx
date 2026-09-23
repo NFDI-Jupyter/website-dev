@@ -22,12 +22,7 @@ export default function Footer() {
                 label="jupyter4nfdi@lists.nfdi.de"
               />
               <FooterLink
-                href="https://mattermost.nfdi.de/jupyter4nfdi"
-                icon={<SiMattermost className="text-lg" />}
-                label="Join our Mattermost"
-              />
-              <FooterLink
-                href="https://rocket.chat/nfdi"
+                href="https://all-chat.nfdi.de/channel/jupyter4nfdi"
                 icon={<SiRocketdotchat className="text-lg" />}
                 label="Join our Rocket.Chat"
               />
