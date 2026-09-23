@@ -32,7 +32,7 @@ export const data: ConsortiaData = {
       name: "NFDI4DataScience",
       domain: "Engineering Sciences",
       description: "",
-      logoUrl: "https://www.nfdi4datascience.de/images/nfdi4ds_logo_white.png",
+      logoUrl: "https://www.nfdi4datascience.de/images/downloads/Logo_NFDI4DataScience.svg",
     },
     {
       name: "NFDI4ING",
