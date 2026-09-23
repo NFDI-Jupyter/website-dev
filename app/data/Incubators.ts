@@ -63,7 +63,7 @@ export const data: IncubatorData = {
       description:
 	"The Heat team implemented interactive tutorials for their high-performance data analytics library.",
       image: "Heat-logo-square.png",
-      url: "https://github.com/NFDI-Jupyter/services/discussions/42",
+      href: "https://github.com/NFDI-Jupyter/services/discussions/42",
     },
 //        {
 //          name: "Astrologische Analysen",
