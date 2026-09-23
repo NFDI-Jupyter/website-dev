@@ -20,8 +20,6 @@ interface IncubatorData {
 
 export const data: IncubatorData = {
   title: "How teams use our platform",
-  subtitle:
-    "Discover how our incubator projects support researchers to leverage Jupyter4NFDI and accelerate their scientific discoveries and collaborations.",
   activeCycle: 0,
   cycles: [
     {
@@ -36,20 +34,14 @@ export const data: IncubatorData = {
           image: "ScanClouDT_Logo.svg",
           href: "https://www.scancloudt.ptb.de/news-events",
         },
-//        {
-//          name: "Biologische Analysen",
-//          institution: "Biologische Analysen",
-//          description: "Komplexe biologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
-//        {
-//          name: "Astrologische Analysen",
-//          institution: "Astrophysikalisches Institut",
-//          description: "Astrologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
+        {
+          name: "AMMICO (AI-based Media and Misinformation Content Analysis Tool) as an AI-powered visual analysis online resource for political science and communication research and teaching",
+          institution: "Heidelberg University",
+          description:
+            "AMMICO is a AI-based tool developed through the collaboration between the Scientific Software Center and researchers at the Institute of Political Science at Heidelberg University. With AMMICO, large amounts of image and video data can be analyzed with respect to emotional and factual content. The aim of this incubator is to make AMMICO more easily available and grow its user base by setting up a low-barrier user-friendly resource where researchers can try out AMMICO and use it for their own research and teaching.",
+          image: "ssc-ammico.png",
+          href: "https://github.com/ssciwr/AMMICO",
+        },
         {
           name: "Interaktiver Selbstlernkurs: Sentimentanalyse mit Python für Digital Humanities",
           institution: "Universitätsbibliothek Duisburg-Essen",
@@ -58,61 +50,55 @@ export const data: IncubatorData = {
           image: "digital-humanities-rhur-logo.png.png",
           href: "https://duepublico2.uni-due.de/receive/duepublico_mods_00086519",
         },
-    {
-      name: "Interactive tutorials for the parallel Heat library",
-      description:
-	"The Heat team implemented interactive tutorials for their high-performance data analytics library.",
-      image: "Heat-logo-square.png",
-      href: "https://github.com/NFDI-Jupyter/services/discussions/42",
-    },
-//        {
-//          name: "Astrologische Analysen",
-//          institution: "Astrophysikalisches Institut",
-//          description: "Astrologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
+        {
+          name: "Interactive tutorials for the parallel Heat library",
+          institution: "Jülich Supercomputing Centre",
+          description:
+            "The Heat team implemented interactive tutorials for their high-performance data analytics library.",
+          image: "Heat-logo-square.png",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/42",
+        },
       ],
     },
-//    {
-//      range: "Aug 2026 – Jan 2027",
-//      status: "active",
-//      incubators: [
-//        {
-//          name: "Geologische Analysen",
-//          institution: "Geologisches Institut",
-//          description: "Sehr viele geologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
-//        {
-//          name: "Incubator Name",
-//          institution: "Institut(e)",
-//          description: "Beschreibung des Incubators.",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
-//        {
-//          name: "Soziologische Analysen",
-//          institution: "Soziologisches Institut",
-//          description: "Einige soziologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
-//      ],
-//    },
-//    {
-//      range: "To be announced",
-//      status: "upcoming",
-//      incubators: [
-//        {
-//          name: "Astrologische Analysen",
-//          institution: "Astrophysikalisches Institut",
-//          description: "Astrologische Analysen",
-//          image: "Jupyter4NFDI-top.png",
-//          href: "#",
-//        },
-//      ],
-//    },
+    //    {
+    //      range: "Aug 2026 – Jan 2027",
+    //      status: "active",
+    //      incubators: [
+    //        {
+    //          name: "Geologische Analysen",
+    //          institution: "Geologisches Institut",
+    //          description: "Sehr viele geologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //        {
+    //          name: "Incubator Name",
+    //          institution: "Institut(e)",
+    //          description: "Beschreibung des Incubators.",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //        {
+    //          name: "Soziologische Analysen",
+    //          institution: "Soziologisches Institut",
+    //          description: "Einige soziologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //      ],
+    //    },
+    //    {
+    //      range: "To be announced",
+    //      status: "upcoming",
+    //      incubators: [
+    //        {
+    //          name: "Astrologische Analysen",
+    //          institution: "Astrophysikalisches Institut",
+    //          description: "Astrologische Analysen",
+    //          image: "Jupyter4NFDI-top.png",
+    //          href: "#",
+    //        },
+    //      ],
+    //    },
   ],
 };
