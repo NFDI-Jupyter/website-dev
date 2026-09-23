@@ -58,6 +58,13 @@ export const data: IncubatorData = {
           image: "Heat-logo-square.png",
           href: "https://github.com/NFDI-Jupyter/services/discussions/42",
         },
+        //        {
+        //          name: "Astrologische Analysen",
+        //          institution: "Astrophysikalisches Institut",
+        //          description: "Astrologische Analysen",
+        //          image: "Jupyter4NFDI-top.png",
+        //          href: "#",
+        //        },
       ],
     },
     //    {
