@@ -11,6 +11,8 @@ import {
 } from "react-icons/lu";
 import { FaArrowsDownToPeople } from "react-icons/fa6";
 
+import { FaArrowsDownToPeople } from "react-icons/fa6";
+
 export interface Feature {
   icon: IconType;
   title: string;
