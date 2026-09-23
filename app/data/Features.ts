@@ -6,7 +6,11 @@ import {
   LuUsers,
   LuContainer,
   LuPresentation,
+  LuDatabase,
+  LuLink,
 } from "react-icons/lu";
+
+import { FaArrowsDownToPeople } from "react-icons/fa6";
 
 interface FeaturesData {
   title: string;
@@ -61,25 +65,24 @@ export const data: FeaturesData = {
         "Facilitating workshops and training sessions with pre-configured environments and easy access to HPC resources for hands-on learning. Everything is ready to go.",
     },
     {
-      icon: LuPresentation,
+      icon: LuDatabase,
       title: "Data integration",
       oneLiner: "Integrate remote data from various sources",
-      description:
-	"",
+      description: "Use the JupyterLab DataMount extension to provide seamless access to external storage services directly within JupyterLab.",
     },
     {
-      icon: LuPresentation,
-      title: "",
-      oneLiner: "",
+      icon: FaArrowsDownToPeople,
+      title: "Real-Time Collaboration",
+      oneLiner: "Collaborate live in your Jupyter Lab with colleagues",
       description:
-        "",
+        "Using the Real-Time Collaboration (RTC) feature, you can share your JupyterLab live with colleagues and work on it together.",
     },
     {
-      icon: LuPresentation,
-      title: "",
-      oneLiner: "",
+      icon: LuLink,
+      title: "Share Links",
+      oneLiner: "Share your configuration for others to reproduce",
       description:
-        "",
+        "Share your current configuration with your colleagues. In combination with the CustomDockerImage or Repo2Docker (Binder) services, it allows you to easily create FAIR digital objects.",
     },
   ],
 };
