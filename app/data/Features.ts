@@ -8,6 +8,7 @@ import {
   LuPresentation,
   LuDatabase,
   LuLink,
+  LuBadgeCheck,
 } from "react-icons/lu";
 import { FaArrowsDownToPeople } from "react-icons/fa6";
 
@@ -16,6 +17,7 @@ export interface Feature {
   title: string;
   oneLiner: string;
   description: string;
+  link?: string;
 }
 
 interface FeaturesData {
@@ -89,6 +91,14 @@ export const data: FeaturesData = {
       oneLiner: "Share your configuration for others to reproduce",
       description:
         "Share your current configuration with your colleagues. In combination with the CustomDockerImage or Repo2Docker (Binder) services, it allows you to easily create FAIR digital objects.",
+    },
+    {
+      icon: LuBadgeCheck,
+      title: "ReproScore",
+      oneLiner: "Assess the reproducibility of your research",
+      description:
+        "Use ReproScore to evaluate and improve the reproducibility of your research workflows.",
+      link: "https://vasundharashaw.github.io/ReproScore-Any/",
     },
   ],
 };

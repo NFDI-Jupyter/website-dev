@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { FlipCard } from "./Flipcard";
-import type { Feature } from "@/types/Feature";
-import { data } from "@/data/Features";
+import { data, type Feature } from "@/data/Features";
 
 export default function Features() {
   return (
@@ -19,7 +18,7 @@ export default function Features() {
           <p className="text-gray-600">{data.subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),1fr))] gap-8">
           {data.features.map((feature: Feature, index: number) => (
             <motion.div
               key={index}
