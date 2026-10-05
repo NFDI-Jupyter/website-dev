@@ -7,7 +7,6 @@ import {
 
 export default [
   layout("./routes/layout.tsx", [index("routes/home/page.tsx")]),
-  route("publications-events", "routes/publications-events/page.tsx"),
   route("docs", "routes/docs/page.tsx"),
   route("docs/*", "routes/docs/path.tsx"),
 ] satisfies RouteConfig;

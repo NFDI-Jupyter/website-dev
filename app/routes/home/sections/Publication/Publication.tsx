@@ -35,15 +35,6 @@ export default function Publication() {
           </div>
 
           <div className="flex flex-wrap gap-3 self-start md:self-auto">
-            {items.length > visibleItems.length && (
-              <a
-                href="publications-events"
-                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-[#087ca6] bg-[#087ca6] px-5 py-3 text-sm font-semibold text-white transition hover:border-[#102b3d] hover:bg-[#102b3d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#159ac8]"
-              >
-                View all
-                <LuArrowUpRight aria-hidden="true" size={16} />
-              </a>
-            )}
             <a
               href={data.community.url}
               target="_blank"

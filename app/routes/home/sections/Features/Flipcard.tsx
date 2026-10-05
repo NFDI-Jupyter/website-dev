@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LuArrowUpRight } from "react-icons/lu";
 import type { Feature } from "@/data/Features";
 
@@ -7,17 +7,20 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const frontButtonRef = useRef<HTMLButtonElement>(null);
   const backButtonRef = useRef<HTMLButtonElement>(null);
-  const toggleCard = () => {
-    const nextFlipped = !isFlipped;
-    setIsFlipped(nextFlipped);
 
-    requestAnimationFrame(() => {
-      const nextControl = nextFlipped
-        ? backButtonRef.current
-        : frontButtonRef.current;
-      nextControl?.focus();
-    });
-  };
+  useEffect(() => {
+    const currentControl = isFlipped
+      ? frontButtonRef.current
+      : backButtonRef.current;
+    if (document.activeElement !== currentControl) return;
+
+    const nextControl = isFlipped
+      ? backButtonRef.current
+      : frontButtonRef.current;
+    nextControl?.focus();
+  }, [isFlipped]);
+
+  const toggleCard = () => setIsFlipped((current) => !current);
 
   return (
     <motion.div
