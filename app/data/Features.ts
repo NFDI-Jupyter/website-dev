@@ -76,7 +76,8 @@ export const data: FeaturesData = {
       icon: LuDatabase,
       title: "Data integration",
       oneLiner: "Integrate remote data from various sources",
-      description: "Use the JupyterLab DataMount extension to provide seamless access to external storage services directly within JupyterLab.",
+      description:
+        "Use the JupyterLab DataMount extension to provide seamless access to external storage services directly within JupyterLab.",
     },
     {
       icon: FaArrowsDownToPeople,

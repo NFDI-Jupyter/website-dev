@@ -20,7 +20,7 @@ interface IncubatorData {
 
 export const data: IncubatorData = {
   title: "How teams use our platform",
-  activeCycle: 0,
+  activeCycle: 1,
   cycles: [
     {
       range: "Feb – Jul 2026",
@@ -60,33 +60,20 @@ export const data: IncubatorData = {
         },
       ],
     },
-    //    {
-    //      range: "Aug 2026 – Jan 2027",
-    //      status: "active",
-    //      incubators: [
-    //        {
-    //          name: "Geologische Analysen",
-    //          institution: "Geologisches Institut",
-    //          description: "Sehr viele geologische Analysen",
-    //          image: "Jupyter4NFDI-top.png",
-    //          href: "#",
-    //        },
-    //        {
-    //          name: "Incubator Name",
-    //          institution: "Institut(e)",
-    //          description: "Beschreibung des Incubators.",
-    //          image: "Jupyter4NFDI-top.png",
-    //          href: "#",
-    //        },
-    //        {
-    //          name: "Soziologische Analysen",
-    //          institution: "Soziologisches Institut",
-    //          description: "Einige soziologische Analysen",
-    //          image: "Jupyter4NFDI-top.png",
-    //          href: "#",
-    //        },
-    //      ],
-    //    },
+    {
+      range: "Aug 2026 – Jan 2027",
+      status: "active",
+      incubators: [
+        {
+          name: "Integrating CloWM with Jupyter4NFDI: Enabling Flexible Postprocessing and Downstream Analysis of Workflow Results",
+          institution: "Bielefeld University",
+          description:
+            "The Cloud-based Workflow Manager (CloWM) is an open-source platform designed for the scalable and reproducible execution of data-intensive workflows. While CloWM excels in standardizing and reproducing workflow execution, the subsequent post-processing and visualization of results often remain manual, relying on custom Python or R scripts outside the platform. While CloWM excels in standardizing and reproducing workflow execution, the subsequent post-processing and visualization of results often remain manual, relying on custom Python or R scripts outside the platform. This incubator project aims to bridge this gap by integrating CloWM with the Jupyter ecosystem. Specifically, we intend to enable users to launch Jupyter instances directly from the CloWM interface, providing seamless, authenticated access to their CloWM-stored S3 data buckets for immediate, interactive downstream analysis.",
+          image: "CloWM.svg",
+          href: "https://clowm.bi.denbi.de/",
+        },
+      ],
+    },
     //    {
     //      range: "To be announced",
     //      status: "upcoming",

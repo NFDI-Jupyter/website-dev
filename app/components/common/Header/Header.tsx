@@ -81,7 +81,7 @@ export default function Header({ heroRef }: HeaderProps) {
           ))}
           <li>
             <a
-              href="prod"
+              href="https://hub.nfdi-jupyter.de/hub/home"
               className={[
                 "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
                 "px-3 md:px-4 py-2 rounded-sm border",
@@ -115,10 +115,14 @@ export default function Header({ heroRef }: HeaderProps) {
 
         {navLinks.length > 0 && (
           <button
-            aria-label="Toggle menu"
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
             onClick={() => setMenuOpen((o) => !o)}
             className={[
               "flex flex-col justify-center items-center w-8 h-8 gap-1.5",
+              "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
               solid ? "text-neutral-700" : "text-white",
             ].join(" ")}
           >
@@ -138,6 +142,7 @@ export default function Header({ heroRef }: HeaderProps) {
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
         <div
+          id="mobile-navigation"
           className={[
             "absolute top-20 left-0 right-0 sm:hidden",
             "flex flex-col px-4 py-3 gap-2",

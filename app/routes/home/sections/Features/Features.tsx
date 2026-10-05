@@ -18,7 +18,7 @@ export default function Features() {
           <p className="text-gray-600">{data.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,20rem),1fr))] gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
           {data.features.map((feature: Feature, index: number) => (
             <motion.div
               key={index}

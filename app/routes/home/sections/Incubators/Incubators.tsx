@@ -35,29 +35,16 @@ const IncubatorCyclesSection: React.FC = () => {
     setActiveIndex((current) => Math.min(current + 1, CYCLES.length - 1));
   };
 
-  const handleTimelineKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
-    if (event.key === "ArrowLeft") {
-      event.preventDefault();
-      goToPreviousCycle();
-    }
-
-    if (event.key === "ArrowRight") {
-      event.preventDefault();
-      goToNextCycle();
-    }
-  };
-
   return (
     <section
       id="incubators"
       className="font-sans bg-[#f7fafc] text-[#12283f] px-6 pt-22 pb-26 motion-reduce:**:transition-none"
       aria-labelledby="timeline-heading"
       aria-label="Incubator cycle timeline"
-      tabIndex={0}
-      onKeyDown={handleTimelineKeyDown}
     >
       <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
         <h2
+          id="timeline-heading"
           className={`${displayFont} font-bold text-[clamp(28px,4vw,40px)] text-center tracking-[-0.01em] m-0 mb-11`}
         >
           {data.title}
@@ -80,7 +67,7 @@ const IncubatorCyclesSection: React.FC = () => {
                 disabled={!prevCycle}
                 type="button"
               >
-                <LuChevronLeft size={16} />
+                <LuChevronLeft aria-hidden="true" size={16} />
               </button>
               {prevCycle && (
                 <button
@@ -143,7 +130,7 @@ const IncubatorCyclesSection: React.FC = () => {
                 disabled={nextCycle === null}
                 type="button"
               >
-                <LuChevronRight size={16} />
+                <LuChevronRight aria-hidden="true" size={16} />
               </button>
             </div>
           </nav>
@@ -191,7 +178,7 @@ const IncubatorCyclesSection: React.FC = () => {
                 </div>
                 <div className="px-4.5 pt-4.5 pb-5 flex flex-col gap-2 flex-1">
                   <span
-                    className={`${monoFont} text-[10.5px] tracking-[0.06em] uppercase text-[#0e7fb0]`}
+                    className={`${monoFont} text-[10.5px] tracking-[0.06em] uppercase text-[#075a7b]`}
                   >
                     {incubator.institution}
                   </span>
@@ -200,15 +187,17 @@ const IncubatorCyclesSection: React.FC = () => {
                   >
                     {incubator.name}
                   </h3>
-                  <p className="m-0 flex-1 text-sm leading-5 text-slate-500">
+                  <p className="m-0 flex-1 text-sm leading-5 text-slate-500 max-[640px]:line-clamp-3">
                     {incubator.description}
                   </p>
                   <a
                     href={incubator.href}
-                    className="mt-1.5 inline-flex items-center gap-1.25 text-[13px] font-semibold text-[#0e7fb0]"
+                    aria-label={`Learn more about ${incubator.name}`}
+                    className="mt-1.5 inline-flex items-center gap-1.25 text-[13px] font-semibold text-[#075a7b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#075a7b]"
                   >
                     Learn more{" "}
                     <LuSquareArrowUpRight
+                      aria-hidden="true"
                       className={[
                         "w-3.5 h-3.5 transition-transform duration-200 ease-in-out motion-reduce:transition-none hover:translate-x-0.5 hover:-translate-y-0.5",
                       ].join(" ")}

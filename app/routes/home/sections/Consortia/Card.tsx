@@ -1,5 +1,5 @@
-import { AnimatedButton } from "@/components/ui/AnimatedButton";
-import type { Consortium } from "@/types/Consortium";
+import type { Consortium } from "@/data/Consortia";
+import { motion } from "motion/react";
 
 interface ConsortiaCardProps {
   consortium: Consortium;
@@ -12,12 +12,12 @@ export const ConsortiaCard = ({ consortium, index }: ConsortiaCardProps) => {
       key={index}
       className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
     >
-      <div className="relative h-48">
+      <div className="relative h-48 bg-gray-100">
         <img
           src={consortium.logoUrl}
           alt={consortium.name}
           draggable={false}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-contain p-6"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
         <div className="absolute bottom-4 left-4">
@@ -33,11 +33,17 @@ export const ConsortiaCard = ({ consortium, index }: ConsortiaCardProps) => {
           {consortium.description}
         </p>
 
-        <AnimatedButton
-          label="explore resources"
-          className="text-blue-600 border-blue-600"
-          onClick={() => console.log("Clicked")}
-        />
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <a
+            href={consortium.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Learn more about ${consortium.name}`}
+            className="font-medium text-blue-700 hover:text-blue-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-700"
+          >
+            Learn more
+          </a>
+        </motion.div>
       </div>
     </div>
   );

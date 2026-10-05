@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [tailwindcss(), reactRouter()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./app"),
+      "@": path.resolve(import.meta.dirname, "./app"),
     },
     extensions: [".ts", ".tsx", ".js", ".jsx", ".css"],
     tsconfigPaths: true,

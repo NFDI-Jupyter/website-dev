@@ -18,7 +18,7 @@ export const data: HeroData = {
     links: [
       { label: "Features", id: "features" },
       { label: "Incubators", id: "incubators" },
-      { label: "Events", id: "training" },
+      { label: "Publications & Events", id: "publication" },
     ],
   },
 };

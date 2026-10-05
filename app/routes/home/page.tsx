@@ -1,7 +1,7 @@
 import Hero from "./sections/Hero/Hero";
 import Features from "./sections/Features/Features";
 import Consortia from "./sections/Consortia/Consortia";
-import Training from "./sections/Training/Training";
+import Publication from "./sections/Publication/Publication";
 import Incubator from "./sections/Incubators/Incubators";
 import Mission from "./sections/Mission/Mission";
 import { useOutletContext } from "react-router";
@@ -13,13 +13,13 @@ export default function Home() {
   }>();
 
   return (
-    <main className="min-h-screen bg-white">
+    <main id="main-content" tabIndex={-1} className="min-h-screen bg-white">
       <Hero heroRef={heroRef} />
       <Mission />
       <Features />
       <Incubator />
       <Consortia />
-      <Training />
+      <Publication />
     </main>
   );
 }

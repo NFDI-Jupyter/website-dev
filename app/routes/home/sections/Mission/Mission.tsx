@@ -16,38 +16,22 @@ export default function Mission() {
             transition={{ duration: 0.8 }}
           >
             {/* Eyebrow */}
-            <p
-              className="flex items-center gap-3 text-[0.68rem] tracking-[0.28em] uppercase mb-6"
-              style={{ color: "#023d6b", fontFamily: "'Outfit', sans-serif" }}
-            >
+            <p className="mb-6 flex items-center gap-3 font-['Outfit',sans-serif] text-[0.68rem] uppercase tracking-[0.28em] text-primary">
               <span className="block w-7 h-px bg-primary" />
               {data.title}
             </p>
 
             {/* Heading */}
-            <h2
-              className="text-[#1a1612] leading-[1.1] mb-8"
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: "clamp(2.4rem, 4.5vw, 4rem)",
-                fontWeight: 300,
-              }}
-            >
+            <h2 className="mb-8 font-['Cormorant_Garamond',serif] text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.1] text-[#1a1612]">
               {data.dominantText}
               <br />
-              <em
-                className="font-semibold not-italic"
-                style={{ fontStyle: "italic", fontWeight: 600 }}
-              >
+              <em className="font-semibold italic">
                 {data.dominantTextHightlight}
               </em>
             </h2>
 
             {/* Body paragraphs */}
-            <div
-              className="space-y-4 mb-10"
-              style={{ fontFamily: "'Outfit', sans-serif" }}
-            >
+            <div className="mb-10 space-y-4 font-['Outfit',sans-serif]">
               {data.paragraphs.map((p: string, i: number) => (
                 <p
                   key={i}
@@ -67,10 +51,7 @@ export default function Mission() {
             transition={{ duration: 0.8 }}
           >
             {/* Photo */}
-            <div
-              className="relative overflow-hidden rounded-sm"
-              style={{ aspectRatio: "4/5" }}
-            >
+            <div className="relative aspect-[4/5] overflow-hidden rounded-sm">
               <img
                 src={data.sideImage.src}
                 alt={data.sideImage.alt}
@@ -80,25 +61,11 @@ export default function Mission() {
             </div>
 
             {/* Floating stat card */}
-            <div
-              className="absolute top-8 -right-5 md:-right-6 bg-[#1a1612] text-[#f4efe8] rounded-sm px-5 py-4 text-center min-w-27.5"
-              style={{ zIndex: 10 }}
-            >
-              <div
-                className="leading-none mb-1.5"
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: "2rem",
-                  fontWeight: 300,
-                  color: "#adbde3",
-                }}
-              >
+            <div className="absolute top-8 -right-5 md:-right-6 bg-[#1a1612] text-[#f4efe8] rounded-sm px-5 py-4 text-center min-w-27.5">
+              <div className="mb-1.5 font-['Cormorant_Garamond',serif] text-2xl font-light leading-none text-secondary">
                 {data.stats[0].value}
               </div>
-              <div
-                className="text-[0.7rem] tracking-[0.16em] uppercase text-white"
-                style={{ fontFamily: "'Outfit', sans-serif" }}
-              >
+              <div className="font-['Outfit',sans-serif] text-[0.7rem] uppercase tracking-[0.16em] text-white">
                 {data.stats[0].label}
               </div>
             </div>

@@ -19,8 +19,8 @@ export const data: MissionData = {
     "We collaborate with various NFDI consortia to provide domain-specific data and computational resources, ensuring each research community has the tools they need for breakthrough discoveries.",
   ],
   sideImage: {
-    src: "Jupyter4NFDI-top.png",
-    alt: "Illustration representing our mission",
+    src: "Jewels_005-huge.jpg",
+    alt: "Jewels supercomputer at Jülich Supercomputing Centre",
   },
   stats: [{ label: "Incubators onboarded", value: "6+" }],
 };

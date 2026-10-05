@@ -1,5 +1,5 @@
 import { LuMail } from "react-icons/lu";
-import { SiMattermost, SiRocketdotchat } from "react-icons/si";
+import { SiRocketdotchat } from "react-icons/si";
 import { FooterLink } from "./FooterLink";
 
 export default function Footer() {
