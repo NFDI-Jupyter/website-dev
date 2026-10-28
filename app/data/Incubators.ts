@@ -58,6 +58,31 @@ export const data: IncubatorData = {
           image: "Heat-logo-square.png",
           href: "https://github.com/NFDI-Jupyter/services/discussions/42",
         },
+        {
+          name: "Jupyter4Chem - Chemistry Data at your Fingertips",
+          institution:
+            "IPB Halle, FIZ Karlsruhe, KIT Karlsruhe, FSU Jena, TIB Hannover, Tartu Ülikool, Universidade Federal do Rio de Janeiro, TU Dresden",
+          description:
+            "One of the main challenges of the Jupyter4Chem Incubator project is the seamless integration of heterogeneous NFDI4Chem services into the Jupyter4NFDI infrastructure. While most services provide publicly accessible data and REST APIs, differences in service architectures, dependencies, and interfaces require individual integration approaches and the development of reproducible, preconfigured environments.",
+          image: "public/Consortia/NFDI4Chem-Logo-Claim_mehrfarbig_schwarz.png",
+          href: "https://nfdi4chem.de/",
+        },
+        {
+          name: "Issue2Docker: Reproducible Environments for Scientific Software Support",
+          institution: " IT Center RWTH Aachen University",
+          description:
+            "The intended wide use of scientific software also increases the demand for software support that can become taxing for researchers. Within the DFG-funded CAES3AR project, we aim to make the support process more efficient and collaborative. A key component is to enable opening issues containing code and executing them in an interactive environment so that supporters can reproduce the issue and provide help without having to set up a suitable environment locally. Therefore, we develop an Issue2Docker tool based on repo2docker. Our goal for this incubator project is an integration of the Issue2Docker functionality into Jupyter4NFDI. As there is currently only a prototypical implementation of the tool, it can be designed for seamless integration from the outset. The infrastructure is developed and tested with pyGIMLi, an open-source library for modeling and inversion in geophysics, but can also serve the wider research software community.",
+          image: "",
+          href: "https://github.com/NFDI-Jupyter/services</discussions/41",
+        },
+        {
+          name: "Tutorial for symbolic regression via compress sensing",
+          institution: "Friedrich-Alexander-Universität",
+          description:
+            "The main goal is to demonstrate some of the state of the art machine learning method in the field of material science. The tutorial tries to following the FAIR principles (Findable, Accessible, Interoperable, Re-usable). The tutorial contains a small (<100MB ) dataset and mainly for demonstrating the method but it also provide a good starting point to run it on any other dataset.",
+          image: "",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/40",
+        },
       ],
     },
     {
@@ -71,6 +96,23 @@ export const data: IncubatorData = {
             "The Cloud-based Workflow Manager (CloWM) is an open-source platform designed for the scalable and reproducible execution of data-intensive workflows. While CloWM excels in standardizing and reproducing workflow execution, the subsequent post-processing and visualization of results often remain manual, relying on custom Python or R scripts outside the platform. While CloWM excels in standardizing and reproducing workflow execution, the subsequent post-processing and visualization of results often remain manual, relying on custom Python or R scripts outside the platform. This incubator project aims to bridge this gap by integrating CloWM with the Jupyter ecosystem. Specifically, we intend to enable users to launch Jupyter instances directly from the CloWM interface, providing seamless, authenticated access to their CloWM-stored S3 data buckets for immediate, interactive downstream analysis.",
           image: "CloWM.svg",
           href: "https://clowm.bi.denbi.de/",
+        },
+        {
+          name: "AVOBMAT multilingual text mining tool",
+          institution:
+            "Digital Humanities Laboratory and Institute of English and American Studies,",
+          description:
+            "The aim of this incubator project is to provide access to the AVOBMAT (Analysis and Visualization of Bibliographic Metadata and Text) multilingual text mining tool on the Jupyter4NFDI infrastructure. AVOBMAT empowers scholars, educators, and students to explore large collections of textual and bibliographic data without programming skills. Built on an extensible, scalable, and modular cloud-based infrastructure, AVOBMAT ensures a transparent and reproducible research process supported by a wide range of analytical tools. It enables researchers to reveal hidden connections, enrich texts and metadata, and collaborate by sharing private databases. With support for 24 languages and customizable features, AVOBMAT makes advanced text analysis accessible so researchers can focus on critical interpretation and discovery.",
+          image: "",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/49",
+        },
+        {
+          name: "Connecting Jupyter@LU",
+          institution: "University of Leipzig",
+          description:
+            "At Leipzig University, the institutional JupyterHub is tightly integrated with the local Slurm-based high-performance computing infrastructure, providing researchers with scalable and interactive computing environments. This project aims to connect these existing resources to the Jupyter4NFDI ecosystem, enabling seamless access through a federated Jupyter infrastructure. ",
+          image: "",
+          href: "",
         },
       ],
     },
