@@ -40,14 +40,14 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
           aria-pressed={isFlipped}
           tabIndex={isFlipped ? -1 : 0}
           ref={frontButtonRef}
-          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-white p-4 text-left shadow-sm backface-hidden hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:p-6"
+          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-white p-4 text-left shadow-sm backface-hidden hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:p-4"
           onClick={toggleCard}
         >
           <div className="mb-3 flex items-center gap-3 md:mb-5 md:gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-white shadow-sm md:h-12 md:w-12">
               <feature.icon aria-hidden="true" className="text-2xl" />
             </div>
-            <h3 className="text-lg font-semibold leading-tight text-gray-900 md:text-xl">
+            <h3 className="min-w-0 break-words text-lg font-semibold leading-tight text-gray-900 md:text-xl">
               {feature.title}
             </h3>
           </div>
@@ -65,7 +65,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
 
         {/* Back side */}
         <motion.div
-          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden [transform:rotateY(180deg)] hover:shadow-lg md:p-6"
+          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden [transform:rotateY(180deg)] hover:shadow-lg md:p-4"
           aria-hidden={!isFlipped}
         >
           <button

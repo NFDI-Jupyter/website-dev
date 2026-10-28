@@ -16,13 +16,13 @@ export default function Mission() {
             transition={{ duration: 0.8 }}
           >
             {/* Eyebrow */}
-            <p className="mb-6 flex items-center gap-3 font-['Outfit',sans-serif] text-[0.68rem] uppercase tracking-[0.28em] text-primary">
+            <p className="mb-6 flex items-center gap-3 text-[0.68rem] uppercase tracking-[0.28em] text-primary">
               <span className="block w-7 h-px bg-primary" />
               {data.title}
             </p>
 
             {/* Heading */}
-            <h2 className="mb-8 font-['Cormorant_Garamond',serif] text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.1] text-[#1a1612]">
+            <h2 className="mb-8 text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.1] text-[#1a1612]">
               {data.dominantText}
               <br />
               <em className="font-semibold italic">
@@ -31,7 +31,7 @@ export default function Mission() {
             </h2>
 
             {/* Body paragraphs */}
-            <div className="mb-10 space-y-4 font-['Outfit',sans-serif]">
+            <div className="mb-10 space-y-4">
               {data.paragraphs.map((p: string, i: number) => (
                 <p
                   key={i}
@@ -62,10 +62,10 @@ export default function Mission() {
 
             {/* Floating stat card */}
             <div className="absolute top-8 -right-5 md:-right-6 bg-[#1a1612] text-[#f4efe8] rounded-sm px-5 py-4 text-center min-w-27.5">
-              <div className="mb-1.5 font-['Cormorant_Garamond',serif] text-2xl font-light leading-none text-secondary">
+              <div className="mb-1.5 text-2xl font-light leading-none text-secondary">
                 {data.stats[0].value}
               </div>
-              <div className="font-['Outfit',sans-serif] text-[0.7rem] uppercase tracking-[0.16em] text-white">
+              <div className="text-[0.7rem] uppercase tracking-[0.16em] text-white">
                 {data.stats[0].label}
               </div>
             </div>

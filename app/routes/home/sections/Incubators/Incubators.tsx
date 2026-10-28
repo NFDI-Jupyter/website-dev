@@ -11,9 +11,6 @@ const CYCLES = data.cycles;
 const clampIndex = (index: number) =>
   Math.min(Math.max(index, 0), CYCLES.length - 1);
 
-const displayFont = "font-['Space_Grotesk',_Inter,_sans-serif]";
-const monoFont = "font-['IBM_Plex_Mono',_ui-monospace,_monospace]";
-
 const IncubatorCyclesSection: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number>(
     clampIndex(data.activeCycle),
@@ -45,7 +42,7 @@ const IncubatorCyclesSection: React.FC = () => {
       <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
         <h2
           id="timeline-heading"
-          className={`${displayFont} font-bold text-[clamp(28px,4vw,40px)] text-center tracking-[-0.01em] m-0 mb-11`}
+          className="font-bold text-[clamp(28px,4vw,40px)] text-center tracking-[-0.01em] m-0 mb-11"
         >
           {data.title}
         </h2>
@@ -81,7 +78,7 @@ const IncubatorCyclesSection: React.FC = () => {
                     aria-hidden="true"
                   />
                   <span
-                    className={`${monoFont} text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden`}
+                    className="text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden"
                   >
                     Cycle {activeIndex}
                   </span>
@@ -95,7 +92,7 @@ const IncubatorCyclesSection: React.FC = () => {
               aria-current="true"
             >
               <span
-                className={`${monoFont} text-[11px] tracking-[0.08em] text-[#1fa8de] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#1fa8de] before:shadow-[0_0_0_4px_rgba(31,168,222,0.25)]`}
+                className="text-[11px] tracking-[0.08em] text-[#1fa8de] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#1fa8de] before:shadow-[0_0_0_4px_rgba(31,168,222,0.25)]"
               >
                 Cycle {activeIndex + 1} · {activeCycle.status}
               </span>
@@ -117,7 +114,7 @@ const IncubatorCyclesSection: React.FC = () => {
                     aria-hidden="true"
                   />
                   <span
-                    className={`${monoFont} text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden`}
+                    className="text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden"
                   >
                     Cycle {activeIndex + 2}
                   </span>
@@ -165,25 +162,27 @@ const IncubatorCyclesSection: React.FC = () => {
                 aria-label={`${incubator.name} by ${incubator.institution}`}
               >
                 <div className="aspect-4/3 overflow-hidden bg-[#f7fafc]">
-                  <img
-                    src={incubator.image}
-                    alt={incubator.name}
-                    loading="lazy"
-                    className={[
-                      "w-full h-full object-fill p-4",
-                      "transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
-                      isHovered ? "scale-[1.04]" : "",
-                    ].join(" ")}
-                  />
+                  {incubator.image ? (
+                    <img
+                      src={incubator.image}
+                      alt={incubator.name}
+                      loading="lazy"
+                      className={[
+                        "w-full h-full object-fill p-4",
+                        "transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
+                        isHovered ? "scale-[1.04]" : "",
+                      ].join(" ")}
+                    />
+                  ) : null}
                 </div>
                 <div className="px-4.5 pt-4.5 pb-5 flex flex-col gap-2 flex-1">
                   <span
-                    className={`${monoFont} text-[10.5px] tracking-[0.06em] uppercase text-[#075a7b]`}
+                    className="text-[10.5px] tracking-[0.06em] uppercase text-[#075a7b]"
                   >
                     {incubator.institution}
                   </span>
                   <h3
-                    className={`${displayFont} font-semibold text-base m-0 leading-[1.3]`}
+                    className="font-semibold text-base m-0 leading-[1.3]"
                   >
                     {incubator.name}
                   </h3>

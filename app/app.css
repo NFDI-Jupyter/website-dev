@@ -1,13 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @theme {
   --color-primary: #023d6b;
   --color-secondary: #adbde3;
+  --font-sans: "Inter", sans-serif;
 }
 
 html,
 body {
   @apply bg-white dark:bg-gray-950;
+  font-family: "Inter", sans-serif;
   ::-webkit-scrollbar {
     width: 8px;
   }

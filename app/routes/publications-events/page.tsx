@@ -18,7 +18,7 @@ export default function PublicationsEventsPage() {
               <LuArrowLeft aria-hidden="true" size={16} />
               Back to home
             </a>
-            <h1 className="font-['Space_Grotesk',sans-serif] text-4xl font-bold tracking-[-0.02em] md:text-5xl">
+            <h1 className="text-4xl font-bold tracking-[-0.02em] md:text-5xl">
               Publications &amp; Events
             </h1>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#587080]">

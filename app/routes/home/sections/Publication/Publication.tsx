@@ -25,7 +25,7 @@ export default function Publication() {
           <div className="max-w-2xl">
             <h2
               id="publications-events-heading"
-              className="font-['Space_Grotesk',sans-serif] text-4xl font-bold tracking-[-0.02em] md:text-5xl"
+              className="text-4xl font-bold tracking-[-0.02em] md:text-5xl"
             >
               Publications &amp; Events
             </h2>
