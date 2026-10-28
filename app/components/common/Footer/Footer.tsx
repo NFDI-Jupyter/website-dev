@@ -10,9 +10,10 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-2">Jupyter4NFDI</h3>
             <p className="text-gray-300 leading-relaxed mb-6">
-              Making distributed HPC and Cloud computing resources accessible
-              through a unified JupyterHub platform for academic research
-              institutions
+              A unified JupyterHub platform that gives academic researchers
+              seamless access to distributed computing resources, with
+              integrated tools for collaboration, data management, and
+              reproducible research.
             </p>
             <h3 className="text-xl font-semibold mb-2">Contact Us</h3>
             <ul className="space-y-3">

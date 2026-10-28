@@ -11,7 +11,7 @@ interface HeroData {
 export const data: HeroData = {
   title: "Jupyter4NFDI",
   description:
-    "Making distributed HPC and Cloud computing resources accessible through a unified JupyterHub platform for academic research institutions",
+    "A unified JupyterHub platform that gives academic researchers seamless access to distributed computing resources, with integrated tools for collaboration, data management, and reproducible research.",
   backgroundImageUrl: "",
   quick: {
     title: "Quick Access",

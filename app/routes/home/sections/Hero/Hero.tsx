@@ -53,6 +53,65 @@ export default function Hero({ heroRef }: HeroProps) {
             </div>
           </motion.div>
         </div>
+        <div className="flex w-full justify-center mt-10 lg:mt-12">
+          <motion.a
+            href="https://hub.nfdi-jupyter.de/hub/home"
+            target="_blank"
+            rel="noreferrer"
+            initial="rest"
+            whileHover="hover"
+            whileFocus="hover"
+            whileTap="tap"
+            variants={{
+              rest: { y: 0 },
+              hover: { y: -2 },
+              tap: { y: 0 },
+            }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-blue-500 px-7 py-3.5 text-base font-bold text-blue-500 shadow-lg shadow-blue-950/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-200 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 sm:px-8 sm:py-4 sm:text-lg"
+          >
+            <motion.span
+              variants={{
+                rest: { scaleX: 1 },
+                hover: { scaleX: 0 },
+                tap: { scaleX: 0 },
+              }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="absolute inset-0 origin-right rounded-full bg-white"
+            />
+            <motion.span
+              variants={{
+                rest: { color: "#3b82f6" },
+                hover: { color: "#ffffff" },
+                tap: { color: "#ffffff" },
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="relative z-10"
+            >
+              Explore the Jupyter4NFDI Hub
+            </motion.span>
+            <motion.svg
+              aria-hidden="true"
+              viewBox="0 0 20 20"
+              fill="none"
+              variants={{
+                rest: { x: 0, color: "#3b82f6" },
+                hover: { x: 4, color: "#ffffff" },
+                tap: { x: 4, color: "#ffffff" },
+              }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10 h-5 w-5"
+            >
+              <path
+                d="M4.167 10h11.666m0 0-5-5m5 5-5 5"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </motion.svg>
+          </motion.a>
+        </div>
       </div>
     </section>
   );
