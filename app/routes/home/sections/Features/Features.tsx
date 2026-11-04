@@ -6,7 +6,7 @@ export default function Features() {
   return (
     <section id="features" className="py-20 bg-[#ebebeb]">
       <motion.div
-        className="max-w-7xl mx-auto px-6 lg:px-8"
+        className="mx-auto max-w-screen-3xl px-6 lg:px-8"
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
@@ -18,7 +18,7 @@ export default function Features() {
           <p className="text-gray-600">{data.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-5">
           {data.features.map((feature: Feature, index: number) => (
             <motion.div
               key={index}

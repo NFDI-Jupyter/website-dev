@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 interface NavItemProps {
   label: string;
   href: string;
@@ -7,8 +8,8 @@ interface NavItemProps {
 export const NavItem = ({ label, href, solid }: NavItemProps) => {
   return (
     <li key={label}>
-      <a
-        href={href}
+      <Link
+        to={href}
         className={[
           "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
           "transition-colors duration-300",
@@ -18,7 +19,7 @@ export const NavItem = ({ label, href, solid }: NavItemProps) => {
         ].join(" ")}
       >
         {label}
-      </a>
+      </Link>
     </li>
   );
 };

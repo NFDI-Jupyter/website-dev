@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export function FooterLink({
   label,
   href,
@@ -9,13 +11,13 @@ export function FooterLink({
 }) {
   return (
     <li>
-      <a
-        href={href}
+      <Link
+        to={href}
         className="text-gray-300 hover:text-white transition-colors cursor-pointer flex items-center gap-2"
       >
         {icon && <span className="shrink-0">{icon}</span>}
         {label}
-      </a>
+      </Link>
     </li>
   );
 }

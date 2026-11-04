@@ -2,20 +2,21 @@ import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LuArrowUpRight } from "react-icons/lu";
 import type { Feature } from "@/data/Features";
+import { Link } from "react-router";
 
 export function FlipCard({ feature }: { feature: Feature; index: number }) {
   const [isFlipped, setIsFlipped] = useState(false);
   const frontButtonRef = useRef<HTMLButtonElement>(null);
-  const backButtonRef = useRef<HTMLButtonElement>(null);
+  const backCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const currentControl = isFlipped
       ? frontButtonRef.current
-      : backButtonRef.current;
+      : backCardRef.current;
     if (document.activeElement !== currentControl) return;
 
     const nextControl = isFlipped
-      ? backButtonRef.current
+      ? backCardRef.current
       : frontButtonRef.current;
     nextControl?.focus();
   }, [isFlipped]);
@@ -24,7 +25,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
 
   return (
     <motion.div
-      className="h-44 md:h-64"
+      className="h-64 w-full md:h-80"
       whileHover={{ y: -8 }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
     >
@@ -47,7 +48,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-white shadow-sm md:h-12 md:w-12">
               <feature.icon aria-hidden="true" className="text-2xl" />
             </div>
-            <h3 className="min-w-0 break-words text-lg font-semibold leading-tight text-gray-900 md:text-xl">
+            <h3 className="min-w-0 wrap-break-word text-lg font-semibold leading-tight text-gray-900 md:text-xl">
               {feature.title}
             </h3>
           </div>
@@ -65,28 +66,34 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
 
         {/* Back side */}
         <motion.div
-          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden [transform:rotateY(180deg)] hover:shadow-lg md:p-4"
+          ref={backCardRef}
+          role="button"
+          tabIndex={isFlipped ? 0 : -1}
+          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden transform-[rotateY(180deg)] hover:shadow-lg md:p-4"
           aria-hidden={!isFlipped}
+          onClick={toggleCard}
+          onKeyDown={(event) => {
+            if (event.target !== event.currentTarget) return;
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              toggleCard();
+            }
+          }}
         >
-          <button
-            type="button"
-            aria-label={`Show summary for ${feature.title}`}
-            tabIndex={isFlipped ? 0 : -1}
-            ref={backButtonRef}
-            className="mb-3 rounded px-1 py-0.5 text-xs font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white md:mb-4"
-            onClick={toggleCard}
-          >
-            Back
-          </button>
-          <h3 className="mb-3 line-clamp-2 text-lg font-semibold leading-tight text-white md:mb-4 md:text-xl">
-            {feature.title}
-          </h3>
-          <p className="line-clamp-5 grow text-xs leading-relaxed text-white opacity-95 md:text-sm">
+          <div className="mb-3 flex items-center gap-3 md:mb-5 md:gap-4">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-secondary shadow-sm md:h-12 md:w-12">
+              <feature.icon aria-hidden="true" className="text-2xl" />
+            </div>
+            <h3 className="min-w-0 wrap-break-word text-lg font-semibold leading-tight text-white md:text-xl">
+              {feature.title}
+            </h3>
+          </div>
+          <p className="line-clamp-10 grow text-xs leading-relaxed text-white opacity-95 md:text-sm">
             {feature.description}
           </p>
           {feature.link && (
-            <a
-              href={feature.link}
+            <Link
+              to={feature.link}
               target="_blank"
               rel="noreferrer"
               aria-label={`Visit ${feature.title}`}
@@ -96,7 +103,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
             >
               Visit page
               <LuArrowUpRight aria-hidden="true" className="text-base" />
-            </a>
+            </Link>
           )}
         </motion.div>
       </motion.div>

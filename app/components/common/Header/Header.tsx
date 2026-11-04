@@ -1,6 +1,7 @@
 import { useState, useEffect, type RefObject } from "react";
 import { NavItem } from "./NavItem";
 
+
 interface HeaderProps {
   heroRef?: RefObject<HTMLDivElement>;
 }

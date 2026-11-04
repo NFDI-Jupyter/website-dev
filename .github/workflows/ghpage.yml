@@ -39,15 +39,12 @@ jobs:
       - name: Install docs tooling
         run: pip install -r docs/requirements.txt
 
-      - name: Generate docs
-        run: pnpm docs:sync
-
       - name: Build
         run: pnpm build
 
       - uses: actions/upload-pages-artifact@v5
         with:
-          path: build/client
+          path: dist
 
   deploy:
     needs: build

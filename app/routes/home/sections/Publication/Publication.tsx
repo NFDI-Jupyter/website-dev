@@ -3,6 +3,7 @@ import { LuArrowUpRight } from "react-icons/lu";
 import { data } from "../../../../data/Publication";
 import { getPublicationEventItems } from "../../../../data/PublicationEvents";
 import { EventCard, PublicationCard } from "./Card";
+import { Link } from "react-router";
 
 export default function Publication() {
   const items = getPublicationEventItems();
@@ -44,6 +45,9 @@ export default function Publication() {
               Browse Zenodo community
               <LuArrowUpRight aria-hidden="true" size={16} />
             </a>
+            <Link to="/publications-events">
+              Checkout all publications and events
+            </Link>
           </div>
         </motion.div>
 

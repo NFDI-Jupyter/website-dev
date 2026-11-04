@@ -1,4 +1,3 @@
-import { reactRouter } from "@react-router/dev/vite";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import { defineConfig } from "vite";
@@ -6,7 +5,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   appType: "spa",
   base: "/website-dev/",
-  plugins: [tailwindcss(), reactRouter()],
+  plugins: [tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "./app"),

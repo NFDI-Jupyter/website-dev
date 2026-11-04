@@ -5,16 +5,16 @@
   "type": "module",
   "scripts": {
     "docs:build": "zensical build -f docs/zensical.toml",
-    "docs:clean": "rm -rf public/docs",
-    "docs:move": "mv docs/site public/docs",
+    "docs:clean": "rm -rf docs/site dist/docs",
+    "docs:move": "mkdir -p dist && mv docs/site dist/docs",
     "docs:sync": "pnpm run docs:clean && pnpm run docs:build && pnpm run docs:move",
-    "build": "react-router build",
-    "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
+    "build": "vite build && pnpm run docs:sync",
+    "dev": "vite",
+    "start": "vite preview",
     "prettier": "prettier --write \"app/**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "lint": "eslint --ext .tsx --ext .ts app/",
     "lint:fix": "eslint --ext .tsx --ext .ts app/ --fix",
-    "typecheck": "react-router typegen && tsc",
+    "typecheck": "tsc",
     "test": "vitest"
   },
   "dependencies": {

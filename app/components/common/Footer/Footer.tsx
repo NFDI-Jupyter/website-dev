@@ -60,8 +60,11 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-2">legal</h3>
             <ul>
-              <FooterLink href="#" label="Imprint" />
-              <FooterLink href="#" label="Privacy Policy" />
+              <FooterLink href="imprint" label="Imprint" />
+              <FooterLink
+                href="https://hub.nfdi-jupyter.de/hub/privacy"
+                label="Privacy Policy"
+              />
               <FooterLink href="#" label="Terms of Service" />
               <FooterLink href="#" label="Accessibility Statement" />
             </ul>
