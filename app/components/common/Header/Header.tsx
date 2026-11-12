@@ -1,6 +1,7 @@
 import { useState, useEffect, type RefObject } from "react";
 import { NavItem } from "./NavItem";
-
+import ExploreHubButton from "@/components/ui/ExploreHubButton";
+import { AnimatePresence, motion } from "motion/react";
 
 interface HeaderProps {
   heroRef?: RefObject<HTMLDivElement>;
@@ -48,72 +49,48 @@ export default function Header({ heroRef }: HeaderProps) {
         "border-b",
         // State
         solid
-          ? "bg-white/95 backdrop-blur-md shadow-[0_1px_0_rgba(26,22,18,0.08)] border-black/6"
-          : "bg-white/20 backdrop-blur-sm border-white/10",
+          ? "bg-slate-900/75 backdrop-blur-md shadow-[0_1px_0_rgba(26,22,18,0.08)] border-white/15"
+          : "bg-slate-900/90 backdrop-blur-md border-white/15",
       ].join(" ")}
     >
-      {/* Logo */}
-      {solid ? (
-        <img
-          src={"Jupyter4NFDI-top.png"}
-          alt={"Jupyter4NFDI Logo"}
-          draggable={false}
-          className="w-40 md:w-52 lg:w-64 object-contain"
-        />
-      ) : (
-        <img
-          src={"Jupyter4NFDI-transparent.png"}
-          alt={"Jupyter4NFDI Logo"}
-          draggable={false}
-          className="w-40 md:w-52 lg:w-64 object-contain"
-        />
-      )}
+      <img
+        src={"Jupyter4NFDI-transparent.png"}
+        alt={"Jupyter4NFDI Logo"}
+        draggable={false}
+        className="w-40 md:w-52 lg:w-64 object-contain"
+      />
 
       {/* Desktop Nav */}
       <nav aria-label="Primary navigation" className="hidden sm:block">
-        <ul className="flex items-center gap-4 md:gap-8 lg:gap-10 list-none m-0 p-0">
+        <motion.ul
+          layout
+          transition={{
+            layout: { type: "spring", stiffness: 260, damping: 30 },
+          }}
+          className="flex items-center gap-4 md:gap-8 lg:gap-10 list-none m-0 p-0"
+        >
           {navLinks.map((link) => (
-            <NavItem
-              key={link.label}
-              label={link.label}
-              href={link.href}
-              solid={solid}
-            />
+            <NavItem key={link.label} label={link.label} href={link.href} />
           ))}
-          <li>
-            <a
-              href="https://hub.nfdi-jupyter.de/hub/home"
-              className={[
-                "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
-                "px-3 md:px-4 py-2 rounded-sm border",
-                "transition-[color,background,border-color] duration-300 whitespace-nowrap",
-                solid
-                  ? "text-neutral-700 border-neutral-400 hover:bg-primary hover:text-white hover:border-primary"
-                  : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
-              ].join(" ")}
-            >
-              Try it now
-            </a>
-          </li>
-        </ul>
+          <AnimatePresence initial={false} mode="popLayout">
+            {solid && (
+              <motion.li
+                key="explore-hub"
+                layout
+                initial={{ opacity: 0, x: 48 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 48 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              >
+                <ExploreHubButton />
+              </motion.li>
+            )}
+          </AnimatePresence>
+        </motion.ul>
       </nav>
 
       {/* Mobile: CTA + Hamburger */}
       <div className="flex sm:hidden items-center gap-3">
-        <a
-          href="prod"
-          className={[
-            "text-[0.65rem] font-normal tracking-widest uppercase no-underline",
-            "px-3 py-1.5 rounded-sm border",
-            "transition-[color,background,border-color] duration-300 whitespace-nowrap",
-            solid
-              ? "text-neutral-700 border-neutral-400 hover:bg-primary hover:text-white hover:border-primary"
-              : "text-white border-white hover:bg-white/20 hover:text-neutral-900 hover:border-neutral-700/60",
-          ].join(" ")}
-        >
-          Try it now
-        </a>
-
         {navLinks.length > 0 && (
           <button
             type="button"
@@ -124,7 +101,7 @@ export default function Header({ heroRef }: HeaderProps) {
             className={[
               "flex flex-col justify-center items-center w-8 h-8 gap-1.5",
               "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
-              solid ? "text-neutral-700" : "text-white",
+              "text-white",
             ].join(" ")}
           >
             <span
@@ -147,16 +124,14 @@ export default function Header({ heroRef }: HeaderProps) {
           className={[
             "absolute top-20 left-0 right-0 sm:hidden",
             "flex flex-col px-4 py-3 gap-2",
-            solid
-              ? "bg-white/95 backdrop-blur-md border-b border-black/6 shadow-md"
-              : "bg-white/80 backdrop-blur-md border-b border-white/10",
+            "bg-slate-900 border-b border-white/15 shadow-md",
           ].join(" ")}
         >
           {navLinks.map(({ label, href }: { label: string; href: string }) => (
             <a
               key={label}
               href={href}
-              className="text-sm text-neutral-700 py-2 border-b border-neutral-100 last:border-0 hover:text-primary transition-colors"
+              className="text-base text-white py-2 border-b border-white/10 last:border-0 hover:text-white/80 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               {label}

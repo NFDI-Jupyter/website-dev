@@ -1,25 +1,27 @@
 import { Link } from "react-router";
+import { motion } from "motion/react";
 interface NavItemProps {
   label: string;
   href: string;
-  solid: boolean;
 }
 
-export const NavItem = ({ label, href, solid }: NavItemProps) => {
+export const NavItem = ({ label, href }: NavItemProps) => {
   return (
-    <li key={label}>
+    <motion.li
+      layout
+      key={label}
+      transition={{ layout: { type: "spring", stiffness: 260, damping: 30 } }}
+    >
       <Link
         to={href}
         className={[
-          "text-[0.72rem] font-normal tracking-[0.12em] uppercase no-underline",
+          "text-base font-medium tracking-[0.04em] uppercase no-underline",
           "transition-colors duration-300",
-          solid
-            ? "text-neutral-800 hover:text-primary"
-            : "text-white hover:text-neutral-900",
+          "text-white hover:text-[#00b1e5]",
         ].join(" ")}
       >
         {label}
       </Link>
-    </li>
+    </motion.li>
   );
 };

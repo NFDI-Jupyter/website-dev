@@ -11,7 +11,7 @@ export function QuickAccessButton({ link }: QuickAccessButtonProps) {
   return (
     <AnimatedButton
       label={link.label}
-      className="flex items-center justify-between w-full p-3 bg-white/20 text-white border-none rounded-lg"
+      className="flex items-center justify-between w-full p-3 bg-slate-900/75 text-white border-none rounded-lg shadow-sm hover:bg-slate-900/10"
       onClick={() => scrollToSection(link.id)}
     />
   );

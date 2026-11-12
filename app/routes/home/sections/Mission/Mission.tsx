@@ -22,7 +22,7 @@ export default function Mission() {
             </p>
 
             {/* Heading */}
-            <h2 className="mb-8 text-[clamp(2.4rem,4.5vw,4rem)] font-light leading-[1.1] text-[#1a1612]">
+            <h2 className="mb-8 text-[clamp(2.4rem,4.5vw,4rem)] font-semibold leading-[1.1] text-[#1a1612]">
               {data.dominantText}
               <br />
               <em className="font-semibold italic">
@@ -33,10 +33,7 @@ export default function Mission() {
             {/* Body paragraphs */}
             <div className="mb-10 space-y-4">
               {data.paragraphs.map((p: string, i: number) => (
-                <p
-                  key={i}
-                  className="text-[0.95rem] font-light leading-[1.85] text-[#1a1612]/65"
-                >
+                <p key={i} className="text-base leading-[1.75] text-[#475569]">
                   {p}
                 </p>
               ))}
