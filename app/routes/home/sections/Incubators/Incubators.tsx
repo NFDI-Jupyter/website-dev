@@ -1,45 +1,86 @@
 import { useState } from "react";
-import {
-  LuChevronLeft,
-  LuChevronRight,
-  LuSquareArrowUpRight,
-} from "react-icons/lu";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { data } from "@/data/Incubators";
+import IncubatorCard from "./IncubatorCard";
 
 const CYCLES = data.cycles;
+
+// Every card of every cycle, flattened into one ordered list.
+// Order: cycle 1 cards, then cycle 2 cards, ... then back to the start.
+const SLIDES = CYCLES.flatMap((cycle, cycleIndex) =>
+  cycle.incubators.map((incubator) => ({ incubator, cycleIndex })),
+);
+
+// Index in SLIDES of the first card of each cycle (-1 if a cycle is empty).
+const FIRST_SLIDE_OF_CYCLE = CYCLES.map((_, cycleIndex) =>
+  SLIDES.findIndex((slide) => slide.cycleIndex === cycleIndex),
+);
 
 const clampIndex = (index: number) =>
   Math.min(Math.max(index, 0), CYCLES.length - 1);
 
+const getOffset = (index: number, active: number) => {
+  const half = SLIDES.length / 2;
+  let offset = index - active;
+  if (offset > half) offset -= SLIDES.length;
+  if (offset < -half) offset += SLIDES.length;
+  return offset;
+};
+
 const IncubatorCyclesSection: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number>(
-    clampIndex(data.activeCycle),
-  );
-  const [hovered, setHovered] = useState<number | null>(null);
+  const [nav, setNav] = useState(() => {
+    const start = Math.max(
+      FIRST_SLIDE_OF_CYCLE[clampIndex(data.activeCycle)] ?? 0,
+      0,
+    );
+    return { current: start, previous: start };
+  });
+  const slideIndex = nav.current;
+  const setSlideIndex = (index: number) =>
+    setNav((n) => ({ previous: n.current, current: index }));
 
-  const activeCycle = CYCLES[activeIndex] ?? CYCLES[0];
-  const activeIncubators = activeCycle?.incubators ?? [];
+  if (SLIDES.length === 0) return null;
 
-  const prevCycle = activeIndex > 0 ? CYCLES[activeIndex - 1] : null;
-  const nextCycle =
-    activeIndex < CYCLES.length - 1 ? CYCLES[activeIndex + 1] : null;
+  const activeIndex = SLIDES[slideIndex].cycleIndex;
+  const activeCycle = CYCLES[activeIndex];
+  const cycleStart = FIRST_SLIDE_OF_CYCLE[activeIndex];
 
-  const goToPreviousCycle = () => {
-    setActiveIndex((current) => Math.max(current - 1, 0));
+  const projectPosition = slideIndex - cycleStart;
+
+  const goToPreviousCard = () => {
+    if (projectPosition > 0) {
+      setSlideIndex(slideIndex - 1);
+      return;
+    }
+
+    const previousCycleIndex =
+      (activeIndex - 1 + CYCLES.length) % CYCLES.length;
+    const previousCycle = CYCLES[previousCycleIndex];
+    setSlideIndex(
+      FIRST_SLIDE_OF_CYCLE[previousCycleIndex] +
+        previousCycle.incubators.length -
+        1,
+    );
   };
 
-  const goToNextCycle = () => {
-    setActiveIndex((current) => Math.min(current + 1, CYCLES.length - 1));
+  const goToNextCard = () => {
+    if (projectPosition < activeCycle.incubators.length - 1) {
+      setSlideIndex(slideIndex + 1);
+      return;
+    }
+
+    const nextCycleIndex = (activeIndex + 1) % CYCLES.length;
+    setSlideIndex(FIRST_SLIDE_OF_CYCLE[nextCycleIndex]);
   };
 
   return (
     <section
       id="incubators"
-      className="font-sans bg-[#f7fafc] text-[#12283f] px-6 pt-22 pb-26 motion-reduce:**:transition-none"
+      className="font-sans bg-[#f7fafc] text-[#12283f] px-4 pt-22 pb-26 motion-reduce:**:transition-none sm:px-6"
       aria-labelledby="timeline-heading"
       aria-label="Incubator cycle timeline"
     >
-      <div className="max-w-7.5xl mx-auto px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-0 sm:px-6 lg:px-8">
         <h2
           id="timeline-heading"
           className="font-bold text-[clamp(28px,4vw,40px)] text-center tracking-[-0.01em] m-0 mb-11"
@@ -47,165 +88,130 @@ const IncubatorCyclesSection: React.FC = () => {
           {data.title}
         </h2>
 
-        <div className="relative mx-auto mb-18 max-w-225">
-          <div
-            className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 z-0 bg-[repeating-linear-gradient(to_right,#dbe4ec_0px,#dbe4ec_6px,transparent_6px,transparent_12px)]"
-            aria-hidden="true"
-          />
-          <nav
-            className="grid grid-cols-[1fr_auto_1fr] items-center gap-4.5"
-            aria-label="Incubator cycles timeline"
-          >
-            <div className="relative z-1 flex items-center gap-2.5 justify-end">
-              <button
-                className="appearance-none bg-white border border-[#dbe4ec] rounded-full text-[#385166] cursor-pointer grid place-items-center w-7.5 h-7.5 transition-colors duration-150 ease-in-out hover:bg-[#e7f6fd] hover:border-[#1fa8de] hover:text-[#0e7fb0] disabled:opacity-45 disabled:cursor-not-allowed disabled:pointer-events-none"
-                aria-label="Show earlier cycles"
-                onClick={goToPreviousCycle}
-                disabled={!prevCycle}
-                type="button"
-              >
-                <LuChevronLeft aria-hidden="true" size={16} />
-              </button>
-              {prevCycle && (
-                <button
-                  className="group appearance-none bg-transparent border-0 p-0 cursor-pointer flex flex-col items-center gap-1.5 px-1 py-1.5 rounded-[10px] transition-transform duration-[0.18s] ease-in-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-[#1fa8de] focus-visible:outline-offset-[3px]"
-                  onClick={() => setActiveIndex(activeIndex - 1)}
-                  type="button"
-                  aria-label={`View cycle ${activeIndex}`}
-                >
-                  <span
-                    className="w-2.25 h-2.25 rounded-full bg-white border-2 border-[#dbe4ec] group-hover:border-[#1fa8de]"
-                    aria-hidden="true"
-                  />
-                  <span
-                    className="text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden"
-                  >
-                    Cycle {activeIndex}
-                  </span>
-                </button>
-              )}
-            </div>
-
-            <div
-              className="relative z-2 flex flex-col items-center gap-1.5 bg-[#12283f] text-white px-7.5 pt-4 pb-3.5 rounded-full shadow-[0_14px_30px_-12px_rgba(18,40,63,0.45)] max-[640px]:px-5 max-[640px]:pt-3 max-[640px]:pb-2.75"
-              aria-live="polite"
-              aria-current="true"
+        <div className="mx-auto mb-10 max-w-225 overflow-hidden rounded-2xl border border-[#dbe4ec] bg-white shadow-[0_12px_30px_-20px_rgba(18,40,63,0.45)]">
+          <div className="p-3 sm:p-4">
+            <nav
+              aria-label="Incubator cycles"
+              role="tablist"
+              className="flex gap-1 sm:gap-2"
             >
-              <span
-                className="text-[11px] tracking-[0.08em] text-[#1fa8de] flex items-center gap-1.5 before:content-[''] before:w-1.5 before:h-1.5 before:rounded-full before:bg-[#1fa8de] before:shadow-[0_0_0_4px_rgba(31,168,222,0.25)]"
-              >
-                Cycle {activeIndex + 1} · {activeCycle.status}
-              </span>
-              <span className="text-[11px] text-white/60">
-                {activeCycle.range}
-              </span>
-            </div>
-
-            <div className="relative z-1 flex items-center gap-2.5 justify-start">
-              {nextCycle && (
+              {CYCLES.map((cycle, cycleIndex) => (
                 <button
-                  className="group appearance-none bg-transparent border-0 p-0 cursor-pointer flex flex-col items-center gap-1.5 px-1 py-1.5 rounded-[10px] transition-transform duration-[0.18s] ease-in-out hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-[#1fa8de] focus-visible:outline-offset-[3px]"
-                  onClick={() => setActiveIndex(activeIndex + 1)}
+                  key={cycle.range}
                   type="button"
-                  aria-label={`View cycle ${activeIndex + 2}`}
+                  role="tab"
+                  aria-selected={cycleIndex === activeIndex}
+                  onClick={() =>
+                    setSlideIndex(FIRST_SLIDE_OF_CYCLE[cycleIndex])
+                  }
+                  className={[
+                    "flex min-w-0 flex-1 flex-col items-start overflow-hidden rounded-xl px-2 py-3 text-left transition-[flex,background-color] duration-300 sm:px-4",
+                    cycleIndex === activeIndex
+                      ? "bg-[#e7f6fd] text-[#12283f] ring-2 ring-[#1fa8de] ring-offset-2 sm:flex-[8_1_0%]"
+                      : "text-[#385166] hover:bg-[#e7f6fd] sm:flex-[1_1_0%]",
+                  ].join(" ")}
                 >
-                  <span
-                    className="w-2.25 h-2.25 rounded-full bg-white border-2 border-[#dbe4ec] group-hover:border-[#1fa8de]"
-                    aria-hidden="true"
-                  />
-                  <span
-                    className="text-[11px] text-[#64748b] whitespace-nowrap max-[640px]:hidden"
-                  >
-                    Cycle {activeIndex + 2}
+                  <span className="truncate text-base font-semibold">
+                    Cycle {cycleIndex + 1}
                   </span>
+                  {cycleIndex === activeIndex && (
+                    <span className="max-w-full text-sm text-[#385166]">
+                      {cycle.range}
+                    </span>
+                  )}
+                  {cycle.status === "active" && cycleIndex !== activeIndex && (
+                    <span className="inline-flex rounded-full bg-[#1fa8de] px-2 py-0.5 align-middle text-xs font-bold uppercase tracking-wide text-white sm:hidden">
+                      Current
+                    </span>
+                  )}
                 </button>
-              )}
-              <button
-                className="appearance-none bg-white border border-[#dbe4ec] rounded-full text-[#385166] cursor-pointer grid place-items-center w-7.5 h-7.5 transition-colors duration-150 ease-in-out hover:bg-[#e7f6fd] hover:border-[#1fa8de] hover:text-[#0e7fb0] disabled:opacity-45 disabled:cursor-not-allowed disabled:pointer-events-none"
-                aria-label="Show later cycles"
-                onClick={goToNextCycle}
-                disabled={nextCycle === null}
-                type="button"
-              >
-                <LuChevronRight aria-hidden="true" size={16} />
-              </button>
+              ))}
+            </nav>
+          </div>
+          <div className="flex items-center justify-center gap-4 border-t border-[#e7eef3] bg-[#fbfdfe] px-4 py-3">
+            <span className="mr-auto text-sm font-semibold text-[#385166]">
+              Projects
+            </span>
+            <button
+              className={
+                "appearance-none bg-white border border-[#dbe4ec] rounded-full text-[#385166] cursor-pointer grid place-items-center shrink-0 transition-colors duration-150 ease-in-out hover:bg-[#e7f6fd] hover:border-[#1fa8de] hover:text-[#0e7fb0] disabled:opacity-45 disabled:cursor-not-allowed disabled:pointer-events-none h-9 w-9"
+              }
+              aria-label="Previous project"
+              onClick={goToPreviousCard}
+              type="button"
+            >
+              <LuChevronLeft aria-hidden="true" size={18} />
+            </button>
+            <div
+              className="flex min-w-28 flex-col items-center gap-2"
+              role="group"
+              aria-label={`Projects within cycle ${activeIndex + 1}`}
+            >
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {activeCycle.incubators.map((incubator, k) => {
+                  const target = cycleStart + k;
+                  const isActive = target === slideIndex;
+
+                  return (
+                    <button
+                      key={`${incubator.name}-${k}`}
+                      type="button"
+                      aria-label={`Show ${incubator.name}`}
+                      aria-current={isActive}
+                      onClick={() => setSlideIndex(target)}
+                      className={[
+                        "h-2 rounded-full cursor-pointer transition-all duration-200 motion-reduce:transition-none",
+                        isActive
+                          ? "w-6 bg-[#1fa8de]"
+                          : "w-2 bg-[#dbe4ec] hover:bg-[#9fb6c8]",
+                      ].join(" ")}
+                    />
+                  );
+                })}
+              </div>
+              <span className="text-xs text-[#64748b]">
+                {projectPosition + 1} of {activeCycle.incubators.length}
+              </span>
             </div>
-          </nav>
+            <button
+              className={
+                "appearance-none bg-white border border-[#dbe4ec] rounded-full text-[#385166] cursor-pointer grid place-items-center shrink-0 transition-colors duration-150 ease-in-out hover:bg-[#e7f6fd] hover:border-[#1fa8de] hover:text-[#0e7fb0] disabled:opacity-45 disabled:cursor-not-allowed disabled:pointer-events-none h-9 w-9"
+              }
+              aria-label="Next project"
+              onClick={goToNextCard}
+              type="button"
+            >
+              <LuChevronRight aria-hidden="true" size={18} />
+            </button>
+          </div>
         </div>
 
-        <div
-          className="flex flex-wrap justify-center gap-4 min-h-140 content-start"
-          role="list"
-          aria-label={`${activeCycle.range} incubators`}
-        >
-          {activeIncubators.map((incubator, i) => {
-            const isHovered = hovered === i;
-            const isDimmed = hovered !== null && !isHovered;
+        <div className="mx-0 sm:-mx-12 lg:-mx-14">
+          <div className="mx-auto max-w-7.5xl overflow-x-clip">
+            <div
+              className="grid mx-auto w-full max-w-2xl sm:w-[78%] lg:w-[26%] lg:max-w-none"
+              role="region"
+              aria-roledescription="carousel"
+              aria-label="Incubators"
+              aria-live="polite"
+            >
+              {SLIDES.map(({ incubator }, i) => {
+                const offset = getOffset(i, slideIndex);
+                const moved = getOffset(slideIndex, nav.previous);
+                const wrapped = offset !== getOffset(i, nav.previous) - moved;
 
-            return (
-              <div
-                key={`${incubator.name}-${i}`}
-                className={[
-                  "bg-white border border-[#dbe4ec] rounded-2xl w-full max-w-2xl overflow-hidden no-underline text-inherit flex flex-col shrink grow",
-                  "transition-[transform,opacity,box-shadow,border-color] duration-[0.28s] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                  "motion-reduce:transition-none",
-                  isDimmed ? "opacity-50 scale-[0.97]" : "",
-                  isHovered
-                    ? "opacity-100 scale-[1.035] shadow-[0_22px_40px_-16px_rgba(18,40,63,0.28)] border-[#1fa8de] z-3"
-                    : "",
-                ].join(" ")}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-                onFocus={() => setHovered(i)}
-                onBlur={() => setHovered(null)}
-                role="listitem"
-                aria-label={`${incubator.name} by ${incubator.institution}`}
-              >
-                <div className="aspect-4/3 overflow-hidden bg-[#f7fafc]">
-                  {incubator.image ? (
-                    <img
-                      src={incubator.image}
-                      alt={incubator.name}
-                      loading="lazy"
-                      className={[
-                        "w-full h-full object-fill p-4",
-                        "transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
-                        isHovered ? "scale-[1.04]" : "",
-                      ].join(" ")}
-                    />
-                  ) : null}
-                </div>
-                <div className="px-4.5 pt-4.5 pb-5 flex flex-col gap-2 flex-1">
-                  <span
-                    className="text-[10.5px] tracking-[0.06em] uppercase text-[#075a7b]"
-                  >
-                    {incubator.institution}
-                  </span>
-                  <h3
-                    className="font-semibold text-base m-0 leading-[1.3]"
-                  >
-                    {incubator.name}
-                  </h3>
-                  <p className="m-0 flex-1 text-sm leading-5 text-slate-500 max-[640px]:line-clamp-3">
-                    {incubator.description}
-                  </p>
-                  <a
-                    href={incubator.href}
-                    aria-label={`Learn more about ${incubator.name}`}
-                    className="mt-1.5 inline-flex items-center gap-1.25 text-[13px] font-semibold text-[#075a7b] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#075a7b]"
-                  >
-                    Learn more{" "}
-                    <LuSquareArrowUpRight
-                      aria-hidden="true"
-                      className={[
-                        "w-3.5 h-3.5 transition-transform duration-200 ease-in-out motion-reduce:transition-none hover:translate-x-0.5 hover:-translate-y-0.5",
-                      ].join(" ")}
-                    />
-                  </a>
-                </div>
-              </div>
-            );
-          })}
+                return (
+                  <IncubatorCard
+                    key={`${incubator.name}-${i}`}
+                    incubator={incubator}
+                    offset={offset}
+                    wrapped={wrapped}
+                    onSelect={() => setSlideIndex(i)}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </section>

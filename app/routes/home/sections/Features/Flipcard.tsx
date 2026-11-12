@@ -60,7 +60,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
             animate={{ opacity: isFlipped ? 0 : 1 }}
             transition={{ duration: 0.3 }}
           >
-            Select to learn more
+            Click to learn more
           </motion.div>
         </motion.button>
 

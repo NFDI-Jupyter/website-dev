@@ -19,7 +19,7 @@ interface IncubatorData {
 }
 
 export const data: IncubatorData = {
-  title: "How teams use our platform",
+  title: "How Researchers use our platform",
   activeCycle: 1,
   cycles: [
     {
@@ -64,7 +64,7 @@ export const data: IncubatorData = {
             "IPB Halle, FIZ Karlsruhe, KIT Karlsruhe, FSU Jena, TIB Hannover, Tartu Ülikool, Universidade Federal do Rio de Janeiro, TU Dresden",
           description:
             "One of the main challenges of the Jupyter4Chem Incubator project is the seamless integration of heterogeneous NFDI4Chem services into the Jupyter4NFDI infrastructure. While most services provide publicly accessible data and REST APIs, differences in service architectures, dependencies, and interfaces require individual integration approaches and the development of reproducible, preconfigured environments.",
-          image: "public/Consortia/NFDI4Chem-Logo-Claim_mehrfarbig_schwarz.png",
+          image: "Consortia/NFDI4Chem-Logo-Claim_mehrfarbig_schwarz.png",
           href: "https://nfdi4chem.de/",
         },
         {
