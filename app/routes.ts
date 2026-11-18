@@ -12,20 +12,6 @@ export const hashRoutes: RouteObject[] = [
     },
   },
   {
-    path: "docs",
-    lazy: async () => {
-      const { default: Component } = await import("./routes/docs/page");
-      return { Component };
-    },
-  },
-  {
-    path: "docs/*",
-    lazy: async () => {
-      const { default: Component } = await import("./routes/docs/path");
-      return { Component };
-    },
-  },
-  {
     path: "/",
     ErrorBoundary: RootErrorBoundary,
     lazy: async () => {

@@ -64,7 +64,6 @@ Any changes you make to the code will show up instantly, no manual refresh neede
 |  |   └──── {Any new section which might be added in the future}
 |  ├── hooks/
 |  └── routes/
-├──docs/
 └──public/
 ```
 - **`app/`** — This folder contains the source code for the main landing page
@@ -72,7 +71,6 @@ Any changes you make to the code will show up instantly, no manual refresh neede
 - **`app/data/{nameOfSection}`** — Each section of the landing page pulls its content from a corresponding typescript file here. This is the primary place to edit, copy links, and change other section-specific content.
 - **`app/hooks/`** — this side spanning hooks
 - **`app/routes/`** — This contains the structure of the site 
-- **`docs/`** — This folder contains the files needed to build the documentation
 - **`public/`** — This folder contains the images shipped with the site which can be used from source code directly
 --
 

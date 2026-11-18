@@ -36,9 +36,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install docs tooling
-        run: pip install -r docs/requirements.txt
-
       - name: Build
         run: pnpm build
 

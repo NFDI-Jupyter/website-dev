@@ -4,11 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "docs:build": "zensical build -f docs/zensical.toml",
-    "docs:clean": "rm -rf docs/site dist/docs",
-    "docs:move": "mkdir -p dist && mv docs/site dist/docs",
-    "docs:sync": "pnpm run docs:clean && pnpm run docs:build && pnpm run docs:move",
-    "build": "vite build && pnpm run docs:sync",
+    "build": "vite build",
     "dev": "vite",
     "start": "vite preview",
     "prettier": "prettier --write \"app/**/*.{js,jsx,ts,tsx,json,css,md}\"",

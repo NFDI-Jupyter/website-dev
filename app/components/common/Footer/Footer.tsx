@@ -37,7 +37,7 @@ export default function Footer() {
                 label="About Us"
               />
               <FooterLink
-                href="https://jupyter4nfdi.de/docs/"
+                href="https://nfdi-jupyter.de/"
                 label="Documentation"
               />
             </ul>

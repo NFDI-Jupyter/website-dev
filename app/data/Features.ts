@@ -64,7 +64,7 @@ export const data: FeaturesData = {
       oneLiner: "Custom Docker images for any setup",
       description:
         "Jupyter4NFDI supports custom Docker images, meaning you can define and use your own computing environment. This flexibility allows you to pre-install specific dependencies, configure your environment exactly as needed, and run reproducible computational workflows across multiple sessions.",
-      link: "docs/users/jupyterlab/customdockerimage/",
+      link: "https://nfdi-jupyter.de//users/jupyterlab/customdockerimage/",
     },
     {
       icon: LuPresentation,
@@ -72,7 +72,7 @@ export const data: FeaturesData = {
       oneLiner: "Pre-configured environments for training",
       description:
         "Facilitating workshops and training sessions with pre-configured environments and easy access to HPC resources for hands-on learning. Everything is ready to go.",
-      link: "docs/workshops/",
+      link: "https://nfdi-jupyter.de//workshops/",
     },
     {
       icon: LuDatabase,
@@ -80,7 +80,7 @@ export const data: FeaturesData = {
       oneLiner: "Integrate remote data from various sources",
       description:
         "Use the JupyterLab DataMount extension to provide seamless access to external storage services directly within JupyterLab.",
-      link: "docs/users/storage/",
+      link: "https://nfdi-jupyter.de//users/storage/",
     },
     {
       icon: FaArrowsDownToPeople,
@@ -88,7 +88,7 @@ export const data: FeaturesData = {
       oneLiner: "Collaborate live in your Jupyter Lab with colleagues",
       description:
         "Using the Real-Time Collaboration (RTC) feature, you can share your JupyterLab live with colleagues and work on it together.",
-      link: "docs/users/rtc/",
+      link: "https://nfdi-jupyter.de//users/rtc/",
     },
     {
       icon: LuLink,
@@ -96,7 +96,7 @@ export const data: FeaturesData = {
       oneLiner: "Share your configuration for others to reproduce",
       description:
         "Share your current configuration with your colleagues. In combination with the CustomDockerImage or Repo2Docker (Binder) services, it allows you to easily create FAIR digital objects.",
-      link: "docs/users/share/",
+      link: "https://nfdi-jupyter.de//users/share/",
     },
     {
       icon: LuBadgeCheck,
