@@ -1,12 +1,18 @@
 import { motion } from "motion/react";
 
-const ExploreHubButton = () => {
+interface ExploreHubButtonProps {
+  label?: string;
+}
+
+const ExploreHubButton = ({
+  label = "Open the Jupyter4NFDI Hub",
+}: ExploreHubButtonProps) => {
   return (
     <motion.a
       href="https://hub.nfdi-jupyter.de/hub/home"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Explore the Jupyter4NFDI Hub (opens in a new tab)"
+      aria-label={`${label} (opens in a new tab)`}
       initial="rest"
       whileHover="hover"
       whileFocus="hover"
@@ -28,7 +34,7 @@ const ExploreHubButton = () => {
         transition={{ duration: 0.3, ease: "easeOut" }}
         className="relative z-10"
       >
-        Explore the Jupyter4NFDI Hub
+        {label}
       </motion.span>
       <motion.svg
         aria-hidden="true"

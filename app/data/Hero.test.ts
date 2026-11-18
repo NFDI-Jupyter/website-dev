@@ -7,11 +7,5 @@ describe("app/data/Hero", () => {
     expect(typeof data.title).toBe("string");
     expect(typeof data.description).toBe("string");
     expect(typeof data.backgroundImageUrl).toBe("string");
-    expect(typeof data.quick.title).toBe("string");
-    expect(Array.isArray(data.quick.links)).toBe(true);
-    data.quick.links.forEach((l) => {
-      expect(typeof l.label).toBe("string");
-      expect(typeof l.id).toBe("string");
-    });
   });
 });

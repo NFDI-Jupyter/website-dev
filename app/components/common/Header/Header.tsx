@@ -1,6 +1,6 @@
 import { useState, useEffect, type RefObject } from "react";
 import { NavItem } from "./NavItem";
-import ExploreHubButton from "@/components/ui/ExploreHubButton";
+import ExploreHubButton from "@/components/ui/OpenHubButton";
 import { AnimatePresence, motion } from "motion/react";
 
 interface HeaderProps {
@@ -53,12 +53,14 @@ export default function Header({ heroRef }: HeaderProps) {
           : "bg-slate-900/90 backdrop-blur-md border-white/15",
       ].join(" ")}
     >
-      <img
-        src={"Jupyter4NFDI-transparent.png"}
-        alt={"Jupyter4NFDI Logo"}
-        draggable={false}
-        className="w-40 md:w-52 lg:w-64 object-contain"
-      />
+      <a href="/" aria-label="Jupyter4NFDI home">
+        <img
+          src={"Jupyter4NFDI-transparent.png"}
+          alt={"Jupyter4NFDI Logo"}
+          draggable={false}
+          className="w-40 md:w-52 lg:w-64 object-contain"
+        />
+      </a>
 
       {/* Desktop Nav */}
       <nav aria-label="Primary navigation" className="hidden sm:block">
@@ -74,16 +76,16 @@ export default function Header({ heroRef }: HeaderProps) {
           ))}
           <AnimatePresence initial={false} mode="popLayout">
             {solid && (
-              <motion.li
-                key="explore-hub"
-                layout
-                initial={{ opacity: 0, x: 48 }}
-                animate={{ opacity: 1, x: 0 }}
+            <motion.li
+              key="explore-hub"
+              layout
+              initial={{ opacity: 0, x: 48 }}
+              animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 48 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-              >
-                <ExploreHubButton />
-              </motion.li>
+              transition={{ duration: 0.35, ease: "easeOut" }}
+            >
+              <ExploreHubButton />
+            </motion.li>
             )}
           </AnimatePresence>
         </motion.ul>

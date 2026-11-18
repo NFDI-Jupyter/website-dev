@@ -45,14 +45,14 @@ const IncubatorCard = ({
               : "z-0 opacity-0 invisible pointer-events-none",
       ].join(" ")}
     >
-      <div className="aspect-4/3 overflow-hidden bg-[#f7fafc]">
+      <div className="aspect-4/3 overflow-hidden bg-white">
         {incubator.image ? (
           <img
             src={incubator.image}
             alt={incubator.name}
             loading="lazy"
             className={[
-              "w-full h-full object-fill p-4 transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
+              "w-full h-full object-contain p-4 transition-transform duration-[0.4s] ease-in-out motion-reduce:transition-none",
               isActive ? "group-hover:scale-[1.04]" : "",
             ].join(" ")}
           />

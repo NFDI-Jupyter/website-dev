@@ -4,6 +4,7 @@ import Consortia from "./sections/Consortia/Consortia";
 import Publication from "./sections/Publication/Publication";
 import Incubator from "./sections/Incubators/Incubators";
 import Mission from "./sections/Mission/Mission";
+import SectionSidebar from "@/components/common/SectionSidebar/SectionSidebar";
 import { useOutletContext } from "react-router";
 import type { RefObject } from "react";
 
@@ -13,13 +14,16 @@ export default function Home() {
   }>();
 
   return (
-    <main id="main-content" tabIndex={-1} className="min-h-screen bg-white">
-      <Hero heroRef={heroRef} />
-      <Mission />
-      <Features />
-      <Incubator />
-      <Consortia />
-      <Publication />
-    </main>
+    <>
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-white">
+        <Hero heroRef={heroRef} />
+        <Mission />
+        <Features />
+        <Incubator />
+        <Consortia />
+        <Publication />
+      </main>
+      <SectionSidebar />
+    </>
   );
 }

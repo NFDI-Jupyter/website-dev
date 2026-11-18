@@ -15,8 +15,8 @@ const sections = [
           Germany: No. HR B 3498
         </p>
         <p>
-          Value Added Tax ID No. in accordance with § 27 a of the German VAT
-          Law (Umsatzsteuergesetz): DE 122624631 Tax No.: 213/5700/0033
+          Value Added Tax ID No. in accordance with § 27 a of the German VAT Law
+          (Umsatzsteuergesetz): DE 122624631 Tax No.: 213/5700/0033
         </p>
         <p>
           <strong>Board of Directors</strong>
@@ -57,11 +57,11 @@ const sections = [
       <p>
         Copyright and all other rights concerning this website are held by
         Forschungszentrum Jülich GmbH. Use of the information contained on the
-        website, including excerpts, is permitted for educational, scientific
-        or private purposes, provided the source is quoted (unless otherwise
-        expressly stated on the respective website). Use for commercial
-        purposes is not permitted unless explicit permission has been granted
-        by Forschungszentrum Jülich.
+        website, including excerpts, is permitted for educational, scientific or
+        private purposes, provided the source is quoted (unless otherwise
+        expressly stated on the respective website). Use for commercial purposes
+        is not permitted unless explicit permission has been granted by
+        Forschungszentrum Jülich.
       </p>
     ),
   },
@@ -69,10 +69,10 @@ const sections = [
     title: "Disclaimer",
     content: (
       <p>
-        <strong>Contents of this Website</strong> This website has been
-        compiled with due diligence. However, Forschungszentrum Jülich neither
-        guarantees nor accepts liability for the information being continually
-        up-to-date, complete or accurate.
+        <strong>Contents of this Website</strong> This website has been compiled
+        with due diligence. However, Forschungszentrum Jülich neither guarantees
+        nor accepts liability for the information being continually up-to-date,
+        complete or accurate.
       </p>
     ),
   },

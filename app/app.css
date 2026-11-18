@@ -42,3 +42,7 @@ body {
     color-scheme: dark;
   }
 }
+
+section[id] {
+  scroll-margin-top: 5rem;
+}

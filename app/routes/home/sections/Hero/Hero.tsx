@@ -9,8 +9,7 @@ import {
 import { LuChevronDown } from "react-icons/lu";
 import { useRef, useState, type RefObject } from "react";
 import { data } from "@/data/Hero";
-import { QuickAccessButton } from "./QuickAccessButton";
-import ExploreHubButton from "@/components/ui/ExploreHubButton";
+import { GettingStarted } from "./GettingStarted";
 
 interface HeroProps {
   heroRef?: RefObject<HTMLDivElement>;
@@ -55,18 +54,7 @@ export default function Hero({ heroRef }: HeroProps) {
           </motion.div>
           <motion.div className="lg:block " style={{ x: springX }}>
             <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-5 sm:p-8 border border-white/20">
-                <h3 className="text-white text-xl font-semibold mb-4">
-                  {data.quick.title}
-                </h3>
-                <div className="space-y-3">
-                  {data.quick.links.map((link, index) => (
-                    <QuickAccessButton key={index} link={link} />
-                  ))}
-                  <hr />
-                  <ExploreHubButton />
-                </div>
-              </div>
+              <GettingStarted />
             </div>
           </motion.div>
         </div>
