@@ -24,7 +24,9 @@ const formatDate = (date: string) =>
 
 const cardClasses = (featured: boolean) =>
   `group flex h-full flex-col justify-between border border-[#d8e2e8] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#159ac8] hover:shadow-[0_18px_38px_-24px_rgba(7,55,82,0.6)] ${
-    featured ? "rounded-4xl p-7 md:p-9" : "rounded-2xl"
+    featured
+      ? "rounded-[40.5px] p-7 md:rounded-[48.5px] md:p-9"
+      : "rounded-[36.5px]"
   }`;
 
 function CardMetadata({ children }: { children: React.ReactNode }) {

@@ -41,7 +41,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
           aria-pressed={isFlipped}
           tabIndex={isFlipped ? -1 : 0}
           ref={frontButtonRef}
-          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-white p-4 text-left shadow-sm backface-hidden hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:p-4"
+          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-3xl bg-white p-4 text-left shadow-sm backface-hidden hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary md:p-4"
           onClick={toggleCard}
         >
           <div className="mb-3 flex items-center gap-3 md:mb-5 md:gap-4">
@@ -69,7 +69,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
           ref={backCardRef}
           role="button"
           tabIndex={isFlipped ? 0 : -1}
-          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden transform-[rotateY(180deg)] hover:shadow-lg md:p-4"
+          className="absolute flex h-full w-full flex-col items-start overflow-hidden rounded-3xl bg-linear-to-br from-secondary to-[#8fa3c4] p-4 shadow-sm backface-hidden transform-[rotateY(180deg)] hover:shadow-lg md:p-4"
           aria-hidden={!isFlipped}
           onClick={toggleCard}
           onKeyDown={(event) => {

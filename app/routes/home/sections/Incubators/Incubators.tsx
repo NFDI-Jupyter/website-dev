@@ -89,7 +89,7 @@ const IncubatorCyclesSection: React.FC = () => {
           {data.title}
         </h2>
 
-        <div className="mx-auto mb-10 max-w-225 overflow-hidden rounded-2xl border border-[#dbe4ec] bg-white shadow-[0_12px_30px_-20px_rgba(18,40,63,0.45)]">
+        <div className="mx-auto mb-10 max-w-225 overflow-hidden rounded-[25px] border border-[#dbe4ec] bg-white shadow-[0_12px_30px_-20px_rgba(18,40,63,0.45)] sm:rounded-[29px]">
           <div className="p-3 sm:p-4">
             <nav
               aria-label="Incubator cycles"
