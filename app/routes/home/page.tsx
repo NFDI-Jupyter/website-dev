@@ -15,6 +15,7 @@ export default function Home() {
 
   return (
     <>
+      <SectionSidebar />
       <main id="main-content" tabIndex={-1} className="min-h-screen bg-white">
         <Hero heroRef={heroRef} />
         <Mission />
@@ -23,7 +24,6 @@ export default function Home() {
         <Consortia />
         <Publication />
       </main>
-      <SectionSidebar />
     </>
   );
 }

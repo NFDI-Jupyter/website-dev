@@ -11,6 +11,7 @@ export default function Publication() {
   return (
     <section
       id="publication"
+      tabIndex={-1}
       className="bg-[#edf5f7] px-6 py-20 text-[#102b3d] lg:px-8"
       aria-labelledby="publications-events-heading"
     >

@@ -42,7 +42,7 @@ export default function Consortia() {
   };
 
   return (
-    <section id="NewConsortia" className="bg-gray-50 py-20">
+    <section id="NewConsortia" tabIndex={-1} className="bg-gray-50 py-20">
       <div className="w-full">
         <div className="mb-12 px-6 text-center lg:px-8">
           <h2 className="mb-4 text-4xl font-bold text-gray-900">

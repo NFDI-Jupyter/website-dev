@@ -4,7 +4,7 @@ import { data, type Feature } from "@/data/Features";
 
 export default function Features() {
   return (
-    <section id="features" className="py-20 bg-[#ebebeb]">
+    <section id="features" tabIndex={-1} className="py-20 bg-[#ebebeb]">
       <motion.div
         className="mx-auto max-w-screen-3xl px-6 lg:px-8"
         whileInView={{ opacity: 1 }}

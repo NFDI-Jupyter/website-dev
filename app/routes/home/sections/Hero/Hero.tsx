@@ -39,12 +39,16 @@ export default function Hero({ heroRef }: HeroProps) {
   return (
     <section
       id="hero"
+      tabIndex={-1}
       className="relative min-h-screen flex items-center bg-cover bg-center bg-no-repeat bg-[linear-gradient(rgba(37,99,235,0.85),rgba(59,130,246,0.75)),url('/Jewels_005-huge.jpg')]"
       ref={heroRef}
     >
       <div ref={scrollRef} className="w-full max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <motion.div className="text-white" style={{ y: springY }}>
+          <motion.div
+            className="text-white"
+            style={shouldReduceMotion ? undefined : { y: springY }}
+          >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               {data.title}
             </h1>
@@ -52,10 +56,8 @@ export default function Hero({ heroRef }: HeroProps) {
               {data.description}
             </p>
           </motion.div>
-          <motion.div className="lg:block " style={{ x: springX }}>
-            <div className="relative">
-              <GettingStarted />
-            </div>
+          <motion.div style={shouldReduceMotion ? undefined : { x: springX }}>
+            <GettingStarted />
           </motion.div>
         </div>
       </div>

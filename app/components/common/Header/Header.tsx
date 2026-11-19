@@ -76,16 +76,16 @@ export default function Header({ heroRef }: HeaderProps) {
           ))}
           <AnimatePresence initial={false} mode="popLayout">
             {solid && (
-            <motion.li
-              key="explore-hub"
-              layout
-              initial={{ opacity: 0, x: 48 }}
-              animate={{ opacity: 1, x: 0 }}
+              <motion.li
+                key="explore-hub"
+                layout
+                initial={{ opacity: 0, x: 48 }}
+                animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: 48 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
-            >
-              <ExploreHubButton />
-            </motion.li>
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              >
+                <ExploreHubButton compact />
+              </motion.li>
             )}
           </AnimatePresence>
         </motion.ul>

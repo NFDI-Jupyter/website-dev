@@ -76,6 +76,7 @@ const IncubatorCyclesSection: React.FC = () => {
   return (
     <section
       id="incubators"
+      tabIndex={-1}
       className="font-sans bg-[#f7fafc] text-[#12283f] px-4 pt-22 pb-26 motion-reduce:**:transition-none sm:px-6"
       aria-labelledby="timeline-heading"
       aria-label="Incubator cycle timeline"
