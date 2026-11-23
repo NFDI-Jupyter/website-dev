@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { LuArrowUpRight } from "react-icons/lu";
 import type { Feature } from "@/data/Features";
-import { Link } from "react-router";
 
 export function FlipCard({ feature }: { feature: Feature; index: number }) {
   const [isFlipped, setIsFlipped] = useState(false);
@@ -92,10 +91,8 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
             {feature.description}
           </p>
           {feature.link && (
-            <Link
-              to={feature.link}
-              target="_blank"
-              rel="noreferrer"
+            <a
+              href={feature.link}
               aria-label={`Visit ${feature.title}`}
               tabIndex={isFlipped ? 0 : -1}
               className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white/15 px-3 py-2 text-sm font-medium text-white transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -103,7 +100,7 @@ export function FlipCard({ feature }: { feature: Feature; index: number }) {
             >
               Visit page
               <LuArrowUpRight aria-hidden="true" className="text-base" />
-            </Link>
+            </a>
           )}
         </motion.div>
       </motion.div>

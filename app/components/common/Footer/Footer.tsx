@@ -32,7 +32,9 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-2">Jupyter4NFDI</h4>
             <ul className="space-y-3">
-              <FooterLink href="/" label="About Us" />
+              <a href="/" className="text-gray-300 hover:text-white">
+                About Us
+              </a>
               <FooterLink
                 href="/docs"
                 label="Documentation"
