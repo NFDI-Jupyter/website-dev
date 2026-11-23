@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+  # Periodic rebuild to pick up documentation changes from NFDI-Jupyter/services
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -38,6 +42,22 @@ jobs:
 
       - name: Build
         run: pnpm build
+
+      # Build the MkDocs documentation from NFDI-Jupyter/services into dist/docs
+      # so it is served under https://nfdi-jupyter.de/docs/
+      - name: Checkout docs
+        uses: actions/checkout@v6
+        with:
+          repository: NFDI-Jupyter/services
+          path: services
+
+      - name: Build docs into dist/docs
+        working-directory: services
+        env:
+          DISABLE_MKDOCS_2_WARNING: "true"
+        run: |
+          pip install mkdocs-material mkdocs-gen-files mkdocs-macros-plugin mkdocs-jupyter mkdocs-simple-hooks neoteroi-mkdocs
+          mkdocs build -d ../dist/docs
 
       - uses: actions/upload-pages-artifact@v5
         with:
