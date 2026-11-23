@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <FooterLink href="/" label="About Us" />
               <FooterLink
-                href="https://nfdi-jupyter.de/"
+                href="/docs"
                 label="Documentation"
               />
             </ul>

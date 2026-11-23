@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Documentation", href: "https://nfdi-jupyter.de/" },
+  { label: "Documentation", href: "/docs" },
 ];
 
 export default function Header({ heroRef }: HeaderProps) {

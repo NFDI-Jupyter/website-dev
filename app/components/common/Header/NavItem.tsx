@@ -12,8 +12,8 @@ export const NavItem = ({ label, href }: NavItemProps) => {
       key={label}
       transition={{ layout: { type: "spring", stiffness: 260, damping: 30 } }}
     >
-      <Link
-        to={href}
+      <a
+        href={href}
         className={[
           "text-base font-medium tracking-[0.04em] uppercase no-underline",
           "transition-colors duration-300",
@@ -21,7 +21,7 @@ export const NavItem = ({ label, href }: NavItemProps) => {
         ].join(" ")}
       >
         {label}
-      </Link>
+      </a>
     </motion.li>
   );
 };
