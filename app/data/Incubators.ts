@@ -69,11 +69,11 @@ export const data: IncubatorData = {
         },
         {
           name: "Issue2Docker: Reproducible Environments for Scientific Software Support",
-          institution: " IT Center RWTH Aachen University",
+          institution: "IT Center RWTH Aachen University",
           description:
             "The intended wide use of scientific software also increases the demand for software support that can become taxing for researchers. Within the DFG-funded CAES3AR project, we aim to make the support process more efficient and collaborative. A key component is to enable opening issues containing code and executing them in an interactive environment so that supporters can reproduce the issue and provide help without having to set up a suitable environment locally. Therefore, we develop an Issue2Docker tool based on repo2docker. Our goal for this incubator project is an integration of the Issue2Docker functionality into Jupyter4NFDI. As there is currently only a prototypical implementation of the tool, it can be designed for seamless integration from the outset. The infrastructure is developed and tested with pyGIMLi, an open-source library for modeling and inversion in geophysics, but can also serve the wider research software community.",
-          image: "",
-          href: "https://github.com/NFDI-Jupyter/services</discussions/41",
+          image: "issue2docker.jpg",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/41",
         },
         {
           name: "Tutorial for symbolic regression via compress sensing",
