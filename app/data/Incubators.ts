@@ -83,6 +83,15 @@ export const data: IncubatorData = {
           image: "",
           href: "https://github.com/NFDI-Jupyter/services/discussions/40",
         },
+      {
+          name: "Integrating Computational Training Materials with Jupyter4NFDI: Methods Hub Use Case",
+          institution: "GESIS – Leibniz Institute for the Social Sciences",
+          description:
+            "This incubator explores the integration of Methods Hub, a platform for sharing computational methods and training materials in the social sciences, with Jupyter4NFDI. The project aims to make computational training materials and research tools easier to access, execute and reuse in reproducible Jupyter environments. Working with Methods Hub contributors, the team evaluates existing content for Jupyter4NFDI compatibility, develops reusable templates and tests approaches for launching training materials directly on the platform. The project also develops documentation and best practices for preparing computational training materials and tools for Jupyter4NFDI, providing guidance that can be reused by other research communities and training providers.",
+          image: "gesis.png",
+          href: "https://github.com/NFDI-Jupyter/services/discussions/44",
+      },
+
       ],
     },
     {
