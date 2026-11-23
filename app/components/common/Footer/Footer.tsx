@@ -32,10 +32,7 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-2">Jupyter4NFDI</h4>
             <ul className="space-y-3">
-              <FooterLink
-                href="https://jupyter4nfdi.de/about/"
-                label="About Us"
-              />
+              <FooterLink href="/" label="About Us" />
               <FooterLink
                 href="https://nfdi-jupyter.de/"
                 label="Documentation"
@@ -65,7 +62,10 @@ export default function Footer() {
                 href="https://hub.nfdi-jupyter.de/hub/privacy"
                 label="Privacy Policy"
               />
-              <FooterLink href="#" label="Terms of Service" />
+              <FooterLink
+                href="https://hub.nfdi-jupyter.de/hub/aup"
+                label="Acceptable Use Policy"
+              />
               <FooterLink href="#" label="Accessibility Statement" />
             </ul>
             <h3 className="text-lg font-semibold my-2">Funding</h3>

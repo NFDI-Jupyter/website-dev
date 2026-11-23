@@ -6,7 +6,7 @@ export default function Features() {
   return (
     <section id="features" tabIndex={-1} className="py-20 bg-[#ebebeb]">
       <motion.div
-        className="mx-auto max-w-screen-3xl px-6 lg:px-8"
+        className="mx-auto max-w-4/5 px-6 lg:px-8"
         whileInView={{ opacity: 1 }}
         initial={{ opacity: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}

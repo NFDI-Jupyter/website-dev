@@ -15,7 +15,7 @@ const steps = [
     description: "Choose a cloud resource.",
   },
   {
-    title: "Start and have fun",
+    title: "Start working",
     description: "Create a new Jupyter notebook and get going.",
   },
 ];
