@@ -4,7 +4,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   appType: "spa",
-  base: "/website-dev/",
+  base: "/",
   plugins: [tailwindcss()],
   resolve: {
     alias: {
