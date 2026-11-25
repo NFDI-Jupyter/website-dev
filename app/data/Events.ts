@@ -17,6 +17,16 @@ export const data: EventsData = {
   title: "Events",
   subtitle: "Events and community activities from the Jupyter4NFDI project.",
   events: [
+     {
+      title:
+        "Introduction to Jupyter4NFDI for NFDI4DataScience (4DS Lecture Series)",
+      type: "Workshop Presentation",
+      date: "November 24, 2026",
+      description:
+        "Presentation for the NFDI4DS Lecture Series offering an overview of how to access and use Jupyter4NFDI.",
+      link: "https://doi.org/10.5281/zenodo.24494422",
+      publicationDoi: "10.5281/zenodo.24494422",
+    },
     {
       title:
         "From MyBinder to JupyterHub: Enhancing Reproducibility in Computational Social Science",
